@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hammer, Trees, Shield, Sparkles, Ruler, Compass, Layers } from 'lucide-react';
+import craftKauri from '../assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
 
 export const CraftsmanshipSection: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ export const CraftsmanshipSection: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/3] w-full overflow-hidden bg-[#ECE8E1] border border-[#DCD6CA] shadow-sm">
               <img
-                src="/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg"
+                src={craftKauri}
                 alt="Heart Kauri timber joinery and artisanal hand craftsmanship at our Morningside workshop"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

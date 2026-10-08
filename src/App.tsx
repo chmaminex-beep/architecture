@@ -16,6 +16,8 @@ import { ProjectModal } from './components/ProjectModal';
 import { ArticleModal } from './components/ArticleModal';
 import { Project } from './data/projects';
 import { Article } from './data/articles';
+import craftKauri from './assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
+import projectPonsonby from './assets/images/project_ponsonby_extension_1791295645669.jpg';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -54,8 +56,8 @@ export default function App() {
 
         {/* Interactive Before & After Transformation Slider */}
         <BeforeAfterSlider
-          beforeImage="/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg"
-          afterImage="/src/assets/images/project_ponsonby_extension_1791295645669.jpg"
+          beforeImage={craftKauri}
+          afterImage={projectPonsonby}
           beforeLabel="1905 Heritage Fabric & Structural Consolidation"
           afterLabel="Restored Villa & Cantilevered Glazed Pavilion"
           title="From Century-Old Timber to Modern Masterpiece"

@@ -1,3 +1,8 @@
+import imgKauriCraft from '../assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
+import imgPonsonby from '../assets/images/project_ponsonby_extension_1791295645669.jpg';
+import imgHerneBay from '../assets/images/hero_herne_bay_villa_1791295635699.jpg';
+import imgRemuera from '../assets/images/project_remuera_residence_1791295667545.jpg';
+
 export interface Article {
   id: string;
   title: string;
@@ -33,7 +38,7 @@ export const ARTICLES: Article[] = [
       name: 'Todd Macpherson',
       role: 'Founder & Master Craftsman'
     },
-    heroImage: '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
+    heroImage: imgKauriCraft,
     content: {
       lead: 'When early Auckland carpenters erected villas across Ponsonby, Parnell, and Devonport in the late nineteenth century, virgin Northland Heart Kauri was their structural cornerstone. Dense, naturally saturated with dammar-like resins, and capable of spanning four metres without deflection, kauri is an irreplaceable architectural treasure.',
       sections: [
@@ -71,7 +76,7 @@ export const ARTICLES: Article[] = [
       name: 'Todd Macpherson',
       role: 'Founder & Master Craftsman'
     },
-    heroImage: '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
+    heroImage: imgPonsonby,
     content: {
       lead: 'The holy grail of Auckland residential architecture is the "villa-to-pavilion" typology: retaining the romantic street presence, soaring pressed ceilings, and quiet intimacy of the heritage front bedrooms, while unleashing the rear of the property into an expansive, sun-filled architectural haven.',
       sections: [
@@ -109,7 +114,7 @@ export const ARTICLES: Article[] = [
       name: 'Todd Macpherson',
       role: 'Founder & Master Craftsman'
     },
-    heroImage: '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
+    heroImage: imgHerneBay,
     content: {
       lead: 'An Auckland villa’s windows are its expressive eyes. The slender proportions of Victorian sash stiles, delicate meeting rails, and bevelled glazing bars give a streetscape its unmistakable rhythm. Ripping them out to install off-the-shelf aluminium frames instantly degrades property heritage value by hundreds of thousands of dollars.',
       sections: [
@@ -142,7 +147,7 @@ export const ARTICLES: Article[] = [
       name: 'Todd Macpherson',
       role: 'Founder & Master Craftsman'
     },
-    heroImage: '/src/assets/images/project_remuera_residence_1791295667545.jpg',
+    heroImage: imgRemuera,
     content: {
       lead: 'Whether your property is located in Grey Lynn (SCAR - Residential Isthmus A) or a waterfront jewel in Devonport, modifying a heritage home in Auckland requires rigorous navigation of regulatory frameworks.',
       sections: [

@@ -1,3 +1,8 @@
+import imgHerneBay from '../assets/images/hero_herne_bay_villa_1791295635699.jpg';
+import imgPonsonby from '../assets/images/project_ponsonby_extension_1791295645669.jpg';
+import imgKauriCraft from '../assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
+import imgRemuera from '../assets/images/project_remuera_residence_1791295667545.jpg';
+
 export interface Project {
   id: string;
   title: string;
@@ -38,13 +43,13 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2024,
     era: 'Victorian (c. 1898)',
-    heroImage: '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
-    beforeImage: '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-    afterImage: '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
+    heroImage: imgHerneBay,
+    beforeImage: imgKauriCraft,
+    afterImage: imgHerneBay,
     gallery: [
-      '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-      '/src/assets/images/project_remuera_residence_1791295667545.jpg'
+      imgHerneBay,
+      imgKauriCraft,
+      imgRemuera
     ],
     description: 'Perched on the northern ridge of Herne Bay, this double-bay Victorian residence suffered from a century of salt air degradation, compromised foundation piles, and unsympathetic 1970s modifications. Over 18 months, our team undertook a forensic restoration of the original Heart Kauri exterior, replicated hand-turned veranda lace fretwork, and restored the original 3.6-metre pressed-metal ceilings.',
     challenge: 'Decayed veranda posts, severe rot in the southern sash frames, and unlevel sub-floor structures over volcanic clay.',
@@ -73,13 +78,13 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2025,
     era: 'Late Victorian / Modern (1905 / 2025)',
-    heroImage: '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
-    beforeImage: '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
-    afterImage: '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
+    heroImage: imgPonsonby,
+    beforeImage: imgHerneBay,
+    afterImage: imgPonsonby,
     gallery: [
-      '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
-      '/src/assets/images/project_remuera_residence_1791295667545.jpg',
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg'
+      imgPonsonby,
+      imgRemuera,
+      imgKauriCraft
     ],
     description: 'A celebrated study in contrast: an impeccably restored street-facing Victorian facade that transitions through an acoustically isolated gallery hallway into an airy 140m² steel, travertine, and cedar open-plan pavilion. The rear opens completely via motorised acoustic glass pockets to an infinity plunge pool and sheltered outdoor kitchen.',
     challenge: 'Preserving the strict streetscape heritage fabric required by Auckland Council while trenching a 4.2-metre deep subterranean cellar and installing 12-metre continuous steel beams.',
@@ -108,13 +113,13 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2024,
     era: 'Edwardian (c. 1912)',
-    heroImage: '/src/assets/images/project_remuera_residence_1791295667545.jpg',
-    beforeImage: '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-    afterImage: '/src/assets/images/project_remuera_residence_1791295667545.jpg',
+    heroImage: imgRemuera,
+    beforeImage: imgKauriCraft,
+    afterImage: imgRemuera,
     gallery: [
-      '/src/assets/images/project_remuera_residence_1791295667545.jpg',
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-      '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg'
+      imgRemuera,
+      imgKauriCraft,
+      imgHerneBay
     ],
     description: 'An expansive 5-bedroom Edwardian residence set on a private Remuera half-acre. Our team restored the intricate pressed-tin ceiling panels, reinstated traditional quarter-sawn chevron parquet flooring, and crafted custom furniture-grade cabinetry with hand-honed Calacatta Oro marble surfaces.',
     challenge: 'Water damage to original fibrous plaster cornices and heavily painted over native timber panelling.',
@@ -143,11 +148,11 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2025,
     era: 'Victorian Single Bay (c. 1902)',
-    heroImage: '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
+    heroImage: imgKauriCraft,
     gallery: [
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-      '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
-      '/src/assets/images/project_ponsonby_extension_1791295645669.jpg'
+      imgKauriCraft,
+      imgHerneBay,
+      imgPonsonby
     ],
     description: 'A specialised project focusing purely on architectural fenestration and precision joinery. We removed, disassembled, and restored 26 original double-hung sash windows. Using our bespoke slimline vacuum-glazed double-glazing technology, we achieved modern thermal R-values while retaining the exact 1902 putty sightlines and counterweight balance.',
     challenge: 'Integrating acoustic and thermal double glazing without fattening the delicate 18mm sash glazing bars.',
@@ -176,11 +181,11 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2023,
     era: 'California Bungalow (c. 1922)',
-    heroImage: '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
+    heroImage: imgHerneBay,
     gallery: [
-      '/src/assets/images/hero_herne_bay_villa_1791295635699.jpg',
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg',
-      '/src/assets/images/project_remuera_residence_1791295667545.jpg'
+      imgHerneBay,
+      imgKauriCraft,
+      imgRemuera
     ],
     description: 'A classic Auckland California Bungalow set at the foot of Maungawhau / Mount Eden. We restored the distinctive river-stone porch pillars, exposed Oregon timber rafters, and leadlight bay windows. The rear was opened to create an expansive indoor-outdoor covered loggia overlooking established native pōhutukawa trees.',
     challenge: 'Cracked volcanic basalt stonework and rotted barge boards beneath historic lead light casements.',
@@ -208,10 +213,10 @@ export const PROJECTS: Project[] = [
     region: 'Auckland',
     year: 2024,
     era: 'Late Victorian (c. 1894)',
-    heroImage: '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
+    heroImage: imgPonsonby,
     gallery: [
-      '/src/assets/images/project_ponsonby_extension_1791295645669.jpg',
-      '/src/assets/images/craft_kauri_timber_joinery_1791295657642.jpg'
+      imgPonsonby,
+      imgKauriCraft
     ],
     description: 'Directly overlooking Waitematā Harbour, this iconic Devonport landmark required extensive seismic underpinning and full marine-grade weatherproofing. We reconstructed the two-tier wrap-around return veranda, replicated intricate cast-iron corbels, and modernized the thermal envelope to endure maritime gales.',
     challenge: 'Intense coastal salt-spray corrosion and Category 2 Heritage New Zealand oversight.',

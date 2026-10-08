@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDownRight, Award, Compass, Sparkles } from 'lucide-react';
+import heroVilla from '../assets/images/hero_herne_bay_villa_1791295635699.jpg';
 
 interface HeroProps {
   onExplorePortfolio: () => void;
@@ -53,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry })
         {/* Hero Visual Showcase: High-Resolution Herne Bay Villa */}
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#ECE8E1] border border-[#DCD6CA] group">
           <img
-            src="/src/assets/images/hero_herne_bay_villa_1791295635699.jpg"
+            src={heroVilla}
             alt="Restored Victorian double-bay villa in Herne Bay Auckland"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
             referrerPolicy="no-referrer"
