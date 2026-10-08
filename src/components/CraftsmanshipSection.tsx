@@ -45,7 +45,7 @@ export const CraftsmanshipSection: React.FC = () => {
               </div>
               <div className="text-right">
                 <span className="text-[#7A5B3E] font-medium block">Arthur (Todd James) Henderson</span>
-                <span>Founder & Registered Master Builder</span>
+                <span>Founder & Master Builder · Operational Since 1997</span>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@ export const CraftsmanshipSection: React.FC = () => {
             </h3>
 
             <p className="text-sm md:text-base text-[#59554E] leading-relaxed">
-              For over two decades, Restorations by Henderson & Co. has operated at the exacting intersection of heritage architecture and luxury residential construction under the personal direction of Founder Arthur (Todd James) Henderson. Our team includes master carpenters, traditional joiners, stonemasons, and seismic engineers who share an obsessive reverence for detail.
+              Founded in 1997 and continuously operational since then, Restorations by Henderson & Co. has spent nearly three decades at the exacting intersection of heritage architecture and luxury residential construction under the personal direction of Founder Arthur (Todd James) Henderson. Our team includes master carpenters, traditional joiners, stonemasons, and seismic engineers who share an obsessive reverence for detail.
             </p>
 
             <p className="text-sm md:text-base text-[#59554E] leading-relaxed">

@@ -41,13 +41,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
             <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              The Portfolio · 2004–2026
+              The Portfolio · 1997–2026 · Operational Since 1997
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
               Selected Heritage Restorations & Luxury Additions
             </h2>
             <p className="text-sm md:text-base text-[#59554E] mt-3">
-              Explore two decades of forensic timber restorations, seamless contemporary pavilions, and bespoke architectural fenestration across Auckland.
+              Explore nearly three decades of forensic timber restorations, seamless contemporary pavilions, and bespoke architectural fenestration across Auckland.
             </p>
           </div>
 

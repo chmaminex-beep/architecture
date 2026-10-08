@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry })
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#E5E1D8]">
           <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium">
             <span className="w-2 h-2 rounded-full bg-[#7A5B3E]" />
-            <span>Auckland, New Zealand · Est. 2004 · 20+ Years of Craftsmanship</span>
+            <span>Auckland, New Zealand · Est. 1997 · Operational Since 1997 · 29+ Years</span>
           </div>
           <div className="text-xs text-[#706B62] tracking-wide">
             Registered Master Builders & Heritage Practitioners
@@ -87,9 +87,9 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry })
         {/* Quantitative Proof Section (Adjacency Rule) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 mt-10 border-t border-[#E5E1D8]">
           <div className="space-y-1">
-            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">22+</div>
+            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">29+</div>
             <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Years in Auckland</div>
-            <p className="text-xs text-[#8A857B] pt-0.5">Continuous heritage restoration practice in central Auckland since 2004.</p>
+            <p className="text-xs text-[#8A857B] pt-0.5">Continuous heritage restoration practice in central Auckland operational since 1997.</p>
           </div>
           <div className="space-y-1">
             <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">140+</div>

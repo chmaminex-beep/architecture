@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '16 Months' }
     ],
     testimonial: {
-      quote: "Restorations by Henderson & Co. brought dignity and quiet opulence back to our family home. Their joiners are true artists. When you run your hand along the staircase newel post, you can feel 20 years of craftsmanship in every radius.",
+      quote: "Restorations by Henderson & Co. brought dignity and quiet opulence back to our family home. Their joiners are true artists. When you run your hand along the staircase newel post, you can feel nearly 30 years of craftsmanship in every radius.",
       author: 'Hamish & Sophie Kensington',
       location: 'Victoria Avenue, Remuera'
     }

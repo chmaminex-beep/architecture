@@ -10,10 +10,10 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <Logo variant="full" light />
             <p className="text-xs text-[#A8A398] max-w-sm leading-relaxed pt-1">
-              Forensic heritage restoration and bespoke luxury residential additions across Auckland, New Zealand. Led by Founder Arthur (Todd James) Henderson with over 20 years of continuous master craftsmanship.
+              Forensic heritage restoration and bespoke luxury residential additions across Auckland, New Zealand. Led by Founder Arthur (Todd James) Henderson. Operational since 1997 with nearly three decades of continuous master craftsmanship.
             </p>
             <div className="text-xs text-[#827D74]">
-              Est. 2004 · Tāmaki Makaurau, New Zealand
+              Est. 1997 · Operational Since 1997 · Tāmaki Makaurau, New Zealand
             </div>
           </div>
 
