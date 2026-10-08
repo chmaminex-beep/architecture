@@ -1,6 +1,82 @@
-# Deploying "Restored by Todd" to Hostinger via GitHub
+# Connecting Your Hostinger Domain to GitHub via DNS
 
-This project is a React SPA built with Vite. Hostinger serves static files from the `public_html` directory.
+When you host your site on **GitHub** (using GitHub Pages) and connect your domain purchased on **Hostinger**, you don't need any paid web hosting servers or FTP credentials. GitHub builds and hosts your website for free with a global CDN and automatic SSL, while Hostinger manages your domain DNS!
+
+---
+
+## Complete Step-by-Step Guide
+
+### Step 1: Push Your Code to GitHub
+Run the following in your local terminal:
+```bash
+git init
+git add .
+git commit -m "Deploy Restored by Todd to GitHub Pages"
+git branch -M main
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+git push -u origin main
+```
+
+---
+
+### Step 2: Configure GitHub Pages
+1. Go to your repository on **GitHub.com**.
+2. Click **Settings** (tab at the top right).
+3. In the left sidebar, click **Pages** (under the "Code and automation" section).
+4. Under **Build and deployment**:
+   - Change **Source** from "Deploy from a branch" to **GitHub Actions**.
+   *(We have already provided `.github/workflows/deploy-pages.yml` in the project, so GitHub will now automatically build and publish your Vite site on every push!)*
+
+---
+
+### Step 3: Configure DNS in Hostinger hPanel
+
+1. Log in to **Hostinger** and go to **hPanel** (https://hpanel.hostinger.com).
+2. Go to **Domains** and click on your domain name.
+3. In the left menu, click **DNS / Nameservers** (or **DNS Zone Editor**).
+4. You need to configure the **A Records** (for the root domain) and a **CNAME Record** (for `www`).
+
+#### A Records (Apex / Root Domain `@`)
+Look for any existing `A` records pointing `@` to Hostinger's default IP. Edit or delete them, and add these **4 GitHub Pages IP addresses**:
+
+| Type | Name | Points to / Content | TTL |
+| :--- | :--- | :--- | :--- |
+| **A** | `@` | `185.199.108.153` | 14400 (or default) |
+| **A** | `@` | `185.199.109.153` | 14400 (or default) |
+| **A** | `@` | `185.199.110.153` | 14400 (or default) |
+| **A** | `@` | `185.199.111.153` | 14400 (or default) |
+
+#### CNAME Record (For `www`)
+Add or edit the `CNAME` record for `www` to point to your GitHub user domain:
+
+| Type | Name | Points to / Content | TTL |
+| :--- | :--- | :--- | :--- |
+| **CNAME** | `www` | `<YOUR_GITHUB_USERNAME>.github.io` | 14400 (or default) |
+
+*(Replace `<YOUR_GITHUB_USERNAME>` with your actual GitHub username, e.g. `johnsmith.github.io`)*
+
+Click **Save** or **Add Record** for each.
+
+---
+
+### Step 4: Add Your Custom Domain in GitHub Pages
+
+1. Return to your GitHub repository: **Settings** → **Pages**.
+2. Scroll down to **Custom domain**.
+3. Enter your domain (e.g. `yourdomain.com` or `www.yourdomain.com`).
+4. Click **Save**.
+   - GitHub will check the DNS records you added in Hostinger. (DNS propagation typically takes 5 to 30 minutes).
+5. Once DNS check passes, tick the checkbox **Enforce HTTPS** to enable free automatic SSL/TLS encryption.
+
+---
+
+### Step 5: Automatic Updates
+
+Any time you make a change and run `git push`, the GitHub Actions workflow will:
+1. Automatically pull the latest code.
+2. Run `npm run build`.
+3. Publish the updated site live to your Hostinger domain.
+
 
 ---
 
