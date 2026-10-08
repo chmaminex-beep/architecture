@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Clock, Calendar, Bookmark, ArrowRight, Lightbulb } from 'lucide-react';
 import { Article } from '../data/articles';
+import { handleImageError } from '../utils/imageFallback';
 
 interface ArticleModalProps {
   article: Article | null;
@@ -45,12 +46,12 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
 
             {/* Author Byline */}
             <div className="flex items-center gap-3 pt-4 border-t border-[#E5E1D8]">
-              <div className="w-10 h-10 rounded-full bg-[#1C1B18] text-[#F4F3EF] flex items-center justify-center font-serif text-sm border border-[#7A5B3E]/40 shrink-0">
-                TM
+              <div className="w-10 h-10 rounded-full bg-[#1C1B18] text-[#F4F3EF] flex items-center justify-center font-serif text-sm border border-[#7A5B3E]/40 shrink-0 font-medium">
+                AH
               </div>
               <div className="text-xs">
                 <span className="font-semibold text-[#1C1B18] block">{article.author.name}</span>
-                <span className="text-[#706B62]">{article.author.role} · Restored by Todd</span>
+                <span className="text-[#706B62]">{article.author.role} · Restorations by Henderson & Co.</span>
               </div>
             </div>
           </div>
@@ -62,6 +63,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
               alt={article.title}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              onError={(e) => handleImageError(e, 'craft')}
             />
           </div>
 
@@ -83,7 +85,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
                   <div className="bg-[#F3F0EB] p-5 border-l-2 border-[#7A5B3E] my-4 text-xs md:text-sm text-[#3A362F]">
                     <div className="flex items-center gap-2 text-[#7A5B3E] font-semibold uppercase tracking-wider text-xs mb-1">
                       <Lightbulb className="w-3.5 h-3.5" />
-                      <span>Todd’s Workshop Rule</span>
+                      <span>Arthur Henderson’s Workshop Rule</span>
                     </div>
                     <p className="leading-relaxed">{section.craftsmanTip}</p>
                   </div>
@@ -119,7 +121,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
               }}
               className="px-6 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer"
             >
-              Discuss With Todd
+              Discuss With Arthur Henderson
             </button>
           </div>
         </div>

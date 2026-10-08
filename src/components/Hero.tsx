@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDownRight, Award, Compass, Sparkles } from 'lucide-react';
 import heroVilla from '../assets/images/hero_herne_bay_villa_1791295635699.jpg';
+import { handleImageError } from '../utils/imageFallback';
 
 interface HeroProps {
   onExplorePortfolio: () => void;
@@ -31,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry })
           </div>
           <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-6">
             <p className="text-base text-[#59554E] leading-relaxed">
-              Led by Todd, our studio specializes in the forensic restoration of nineteenth-century Victorian villas and the seamless integration of bespoke luxury contemporary living across Tāmaki Makaurau.
+              Led by Founder Arthur (Todd James) Henderson, our studio specializes in the forensic restoration of nineteenth-century Victorian villas and the seamless integration of bespoke luxury contemporary living across Tāmaki Makaurau.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <button
@@ -58,6 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry })
             alt="Restored Victorian double-bay villa in Herne Bay Auckland"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
             referrerPolicy="no-referrer"
+            onError={(e) => handleImageError(e, 'villa')}
           />
           {/* Subtle architectural gradient scrim */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />

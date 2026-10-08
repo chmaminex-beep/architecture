@@ -11,7 +11,7 @@ Run the following in your local terminal:
 ```bash
 git init
 git add .
-git commit -m "Deploy Restored by Todd to GitHub Pages"
+git commit -m "Deploy Restorations by Henderson & Co to GitHub Pages"
 git branch -M main
 git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
 git push -u origin main

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, MapPin, Calendar, Compass, ShieldCheck, Quote, ChevronRight, Check } from 'lucide-react';
 import { Project } from '../data/projects';
+import { handleImageError } from '../utils/imageFallback';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -57,6 +58,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 alt={`${project.title} detailed photograph ${activeImageIndex + 1}`}
                 className="w-full h-full object-cover transition-all duration-300"
                 referrerPolicy="no-referrer"
+                onError={(e) => handleImageError(e, 'villa')}
               />
             </div>
 
@@ -76,6 +78,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={(e) => handleImageError(e, 'villa')}
                     />
                   </button>
                 ))}

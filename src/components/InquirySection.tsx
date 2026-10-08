@@ -70,7 +70,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-      setError('Please complete your name, email, and contact number so Todd can review your inquiry.');
+      setError('Please complete your name, email, and contact number so Arthur Henderson can review your inquiry.');
       return;
     }
     setError(null);
@@ -96,7 +96,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
               Begin the Conversation
             </h2>
             <p className="text-sm md:text-base text-[#59554E] mt-3">
-              We take on a limited roster of 4–6 major residential restorations and bespoke extensions each year to ensure Todd’s personal oversight on every joint and sill.
+              We take on a limited roster of 4–6 major residential restorations and bespoke extensions each year to ensure Founder Arthur (Todd James) Henderson’s personal oversight on every joint and sill.
             </p>
           </div>
           <div className="text-xs text-[#706B62] space-y-1">
@@ -143,8 +143,8 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   <Mail className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-[#1C1B18] block">Inquiry Email</span>
-                    <a href="mailto:inquiries@restoredbytodd.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors">
-                      inquiries@restoredbytodd.co.nz
+                    <a href="mailto:inquiries@hendersonrestorations.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors">
+                      inquiries@hendersonrestorations.co.nz
                     </a>
                   </div>
                 </div>
@@ -196,10 +196,10 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   Thank You, {formData.name}
                 </h3>
                 <p className="text-sm text-[#59554E] max-w-md mx-auto leading-relaxed">
-                  Your project inquiry regarding your <span className="font-semibold text-[#1C1B18]">{formData.suburb}</span> residence has been received directly by Todd Macpherson. Todd will review your architectural notes and phone you within 24 business hours to arrange an initial on-site consultation.
+                  Your project inquiry regarding your <span className="font-semibold text-[#1C1B18]">{formData.suburb}</span> residence has been received directly by Founder Arthur (Todd James) Henderson. Arthur will review your architectural notes and phone you within 24 business hours to arrange an initial on-site consultation.
                 </p>
                 <div className="pt-6 border-t border-[#E5E1D8] text-xs text-[#706B62]">
-                  Reference ID: NZ-RBT-{Math.floor(100000 + Math.random() * 900000)} · A confirmation has been sent to {formData.email}
+                  Reference ID: NZ-RHC-{Math.floor(100000 + Math.random() * 900000)} · A confirmation has been sent to {formData.email}
                 </div>
                 <button
                   onClick={() => {
@@ -221,7 +221,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                     Property & Project Consultation Form
                   </h3>
                   <p className="text-xs text-[#706B62] mt-1">
-                    Direct confidential review by Principal Builder Todd.
+                    Direct confidential review by Principal Builder Arthur (Todd James) Henderson.
                   </p>
                 </div>
 
@@ -379,7 +379,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   className="w-full py-4 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
-                    <span>Submitting Inquiry to Todd...</span>
+                    <span>Submitting Inquiry to Arthur Henderson...</span>
                   ) : (
                     <>
                       <span>Transmit Inquiry to Principal Craftsman</span>
@@ -389,7 +389,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                 </button>
 
                 <p className="text-[11px] text-[#706B62] text-center">
-                  Your architectural vision and property address are kept strictly private. Restored by Todd operates with full professional indemnity and Master Build 10-Year Guarantee cover.
+                  Your architectural vision and property address are kept strictly private. Restorations by Henderson & Co. operates with full professional indemnity and Master Build 10-Year Guarantee cover.
                 </p>
               </form>
             )}

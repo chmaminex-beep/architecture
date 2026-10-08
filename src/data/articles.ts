@@ -35,8 +35,8 @@ export const ARTICLES: Article[] = [
     publishDate: 'August 2025',
     category: 'Timber Science',
     author: {
-      name: 'Todd Macpherson',
-      role: 'Founder & Master Craftsman'
+      name: 'Arthur (Todd James) Henderson',
+      role: 'Founder & Principal Craftsman'
     },
     heroImage: imgKauriCraft,
     content: {
@@ -73,8 +73,8 @@ export const ARTICLES: Article[] = [
     publishDate: 'June 2025',
     category: 'Modern Additions',
     author: {
-      name: 'Todd Macpherson',
-      role: 'Founder & Master Craftsman'
+      name: 'Arthur (Todd James) Henderson',
+      role: 'Founder & Principal Craftsman'
     },
     heroImage: imgPonsonby,
     content: {
@@ -111,8 +111,8 @@ export const ARTICLES: Article[] = [
     publishDate: 'April 2025',
     category: 'Joinery Craft',
     author: {
-      name: 'Todd Macpherson',
-      role: 'Founder & Master Craftsman'
+      name: 'Arthur (Todd James) Henderson',
+      role: 'Founder & Principal Craftsman'
     },
     heroImage: imgHerneBay,
     content: {
@@ -144,8 +144,8 @@ export const ARTICLES: Article[] = [
     publishDate: 'February 2025',
     category: 'Heritage Consents',
     author: {
-      name: 'Todd Macpherson',
-      role: 'Founder & Master Craftsman'
+      name: 'Arthur (Todd James) Henderson',
+      role: 'Founder & Principal Craftsman'
     },
     heroImage: imgRemuera,
     content: {

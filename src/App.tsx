@@ -70,7 +70,7 @@ export default function App() {
           onSelectProject={(project) => setSelectedProject(project)}
         />
 
-        {/* Craftsmanship Code & Todd's Story */}
+        {/* Craftsmanship Code & Arthur Henderson's Story */}
         <CraftsmanshipSection />
 
         {/* Integrated Blog / Craftsman's Journal */}

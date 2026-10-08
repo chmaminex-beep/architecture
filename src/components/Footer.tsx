@@ -1,4 +1,5 @@
 import React from 'react';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -7,11 +8,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#302D27]">
           {/* Brand & Wordmark */}
           <div className="md:col-span-5 space-y-4">
-            <span className="font-serif text-2xl text-white block">
-              Restored by Todd
-            </span>
-            <p className="text-xs text-[#A8A398] max-w-sm leading-relaxed">
-              Forensic heritage restoration and bespoke luxury residential additions across Auckland, New Zealand. Led by Master Craftsman Todd Macpherson.
+            <Logo variant="full" light />
+            <p className="text-xs text-[#A8A398] max-w-sm leading-relaxed pt-1">
+              Forensic heritage restoration and bespoke luxury residential additions across Auckland, New Zealand. Led by Founder Arthur (Todd James) Henderson with over 20 years of continuous master craftsmanship.
             </p>
             <div className="text-xs text-[#827D74]">
               Est. 2004 · Tāmaki Makaurau, New Zealand
@@ -51,7 +50,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#827D74]">
           <div>
-            © {new Date().getFullYear()} Restored by Todd Ltd. All rights reserved.
+            © {new Date().getFullYear()} Restorations by Henderson & Co. Ltd. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <span>Auckland Special Character Overlay Compliance</span>

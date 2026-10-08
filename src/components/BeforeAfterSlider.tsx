@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { ArrowLeftRight, CheckCircle2 } from 'lucide-react';
+import { handleImageError } from '../utils/imageFallback';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -79,6 +80,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             alt="Completed architectural restoration"
             className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
+            onError={(e) => handleImageError(e, 'pavilion')}
           />
 
           {/* BEFORE Image (Clipped overlay) */}
@@ -95,6 +97,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
                 height: '100%'
               }}
               referrerPolicy="no-referrer"
+              onError={(e) => handleImageError(e, 'craft')}
             />
             {/* Before Tint Filter for vintage / structural realism */}
             <div className="absolute inset-0 bg-[#352F27]/20 mix-blend-multiply pointer-events-none" />

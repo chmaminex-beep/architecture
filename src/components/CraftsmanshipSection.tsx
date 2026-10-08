@@ -1,6 +1,7 @@
 import React from 'react';
 import { Hammer, Trees, Shield, Sparkles, Ruler, Compass, Layers } from 'lucide-react';
 import craftKauri from '../assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
+import { handleImageError } from '../utils/imageFallback';
 
 export const CraftsmanshipSection: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ export const CraftsmanshipSection: React.FC = () => {
                 alt="Heart Kauri timber joinery and artisanal hand craftsmanship at our Morningside workshop"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => handleImageError(e, 'craft')}
               />
             </div>
             <div className="mt-4 flex items-center justify-between text-xs text-[#706B62]">
@@ -42,8 +44,8 @@ export const CraftsmanshipSection: React.FC = () => {
                 <span>Hand-finished Heart Kauri & Precision Joinery</span>
               </div>
               <div className="text-right">
-                <span className="text-[#7A5B3E] font-medium block">22 Years in Practice</span>
-                <span>Tāmaki Makaurau Auckland</span>
+                <span className="text-[#7A5B3E] font-medium block">Arthur (Todd James) Henderson</span>
+                <span>Founder & Registered Master Builder</span>
               </div>
             </div>
           </div>
@@ -55,7 +57,7 @@ export const CraftsmanshipSection: React.FC = () => {
             </h3>
 
             <p className="text-sm md:text-base text-[#59554E] leading-relaxed">
-              For over two decades, Restored by Todd has operated at the exacting intersection of heritage architecture and luxury residential construction. Our team includes master carpenters, traditional joiners, stonemasons, and seismic engineers who share an obsessive reverence for detail.
+              For over two decades, Restorations by Henderson & Co. has operated at the exacting intersection of heritage architecture and luxury residential construction under the personal direction of Founder Arthur (Todd James) Henderson. Our team includes master carpenters, traditional joiners, stonemasons, and seismic engineers who share an obsessive reverence for detail.
             </p>
 
             <p className="text-sm md:text-base text-[#59554E] leading-relaxed">

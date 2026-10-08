@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
       { label: 'Joinery Profile', value: 'Bespoke 1890 Ogee Mouldings' }
     ],
     testimonial: {
-      quote: "Todd's encyclopedic knowledge of Auckland villa construction saved this house. He did not cut a single corner. The sash windows now glide with counterweighted ease, and the fretwork is a genuine work of art.",
+      quote: "Arthur Henderson's encyclopedic knowledge of Auckland villa construction saved this house. He did not cut a single corner. The sash windows now glide with counterweighted ease, and the fretwork is a genuine work of art.",
       author: 'Marcus & Eleanor Vance',
       location: 'Marine Parade, Herne Bay'
     }
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '14 Months' }
     ],
     testimonial: {
-      quote: "The seamless threshold between our 120-year-old front bedrooms and the new light-filled living pavilion still leaves our guests speechless. Todd and his team are architects at heart who happen to be master builders.",
+      quote: "The seamless threshold between our 120-year-old front bedrooms and the new light-filled living pavilion still leaves our guests speechless. Arthur and his team are architects at heart who happen to be master builders.",
       author: 'Dr. Alistair & Clare Thorne',
       location: 'Wood Street, Ponsonby'
     }
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '16 Months' }
     ],
     testimonial: {
-      quote: "Restored by Todd brought dignity and quiet opulence back to our family home. Their joiners are true artists. When you run your hand along the staircase newel post, you can feel 20 years of craftsmanship in every radius.",
+      quote: "Restorations by Henderson & Co. brought dignity and quiet opulence back to our family home. Their joiners are true artists. When you run your hand along the staircase newel post, you can feel 20 years of craftsmanship in every radius.",
       author: 'Hamish & Sophie Kensington',
       location: 'Victoria Avenue, Remuera'
     }
@@ -166,7 +166,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '5 Months' }
     ],
     testimonial: {
-      quote: "Our home is now whisper quiet and holds heat all winter, yet from the street it looks untouched since 1902. Todd's custom joinery solution is unmatched in Auckland.",
+      quote: "Our home is now whisper quiet and holds heat all winter, yet from the street it looks untouched since 1902. Arthur Henderson's custom joinery solution is unmatched in Auckland.",
       author: 'Geoffrey & Rachel Boyd',
       location: 'Richmond Road, Grey Lynn'
     }
@@ -198,7 +198,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '11 Months' }
     ],
     testimonial: {
-      quote: "Todd understands the soul of Auckland timber architecture. He guided us through resource consent smoothly and completed the restoration with surgical precision.",
+      quote: "Arthur Henderson understands the soul of Auckland timber architecture. He guided us through resource consent smoothly and completed the restoration with surgical precision.",
       author: 'David & Natasha Cole',
       location: 'Valley Road, Mount Eden'
     }
@@ -229,7 +229,7 @@ export const PROJECTS: Project[] = [
       { label: 'Duration', value: '20 Months' }
     ],
     testimonial: {
-      quote: "Watching Todd's carpenters hand-scribe the replacement veranda brackets to match the 1894 originals was a masterclass. Our home is secured for the next 150 years.",
+      quote: "Watching Henderson & Co.'s carpenters hand-scribe the replacement veranda brackets to match the 1894 originals was a masterclass. Our home is secured for the next 150 years.",
       author: 'Richard & Penelope Sinclair',
       location: 'King Edward Parade, Devonport'
     }

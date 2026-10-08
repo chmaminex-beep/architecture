@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowUpRight, Search, SlidersHorizontal } from 'lucide-react';
 import { PROJECTS, Project } from '../data/projects';
+import { handleImageError } from '../utils/imageFallback';
 
 interface PortfolioProps {
   onSelectProject: (project: Project) => void;
@@ -117,6 +118,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                       referrerPolicy="no-referrer"
+                      onError={(e) => handleImageError(e, 'villa')}
                     />
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-xs p-2 text-[#1C1B18] opacity-0 group-hover:opacity-100 transition-opacity">
                       <ArrowUpRight className="w-4 h-4" />

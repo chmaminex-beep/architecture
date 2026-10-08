@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface NavbarProps {
   onOpenInquiry: () => void;
@@ -34,12 +35,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Zone 1: Single text element brand wordmark */}
+        {/* Zone 1: Single brand lockup with logo */}
         <a
           href="#"
-          className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-[#1C1B18] hover:text-[#7A5B3E] transition-colors whitespace-nowrap"
+          className="flex items-center hover:opacity-90 transition-opacity"
+          aria-label="Restorations by Henderson & Co. Home"
         >
-          Restored by Todd
+          <Logo variant="compact" />
         </a>
 
         {/* Zone 2: 4–6 text navigation links */}

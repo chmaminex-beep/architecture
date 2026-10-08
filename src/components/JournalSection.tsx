@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, BookOpen, Clock } from 'lucide-react';
 import { ARTICLES, Article } from '../data/articles';
+import { handleImageError } from '../utils/imageFallback';
 
 interface JournalSectionProps {
   onSelectArticle: (article: Article) => void;
@@ -64,6 +65,7 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
                   alt={filteredArticles[0].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                   referrerPolicy="no-referrer"
+                  onError={(e) => handleImageError(e, 'craft')}
                 />
               </div>
               <div className="p-8 space-y-4">
