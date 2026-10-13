@@ -1,47 +1,55 @@
 import React from 'react';
 import { Logo } from './Logo';
+import { Lock, ShieldCheck, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#1C1B18] text-[#D8D4CA] pt-16 pb-12 border-t border-[#302D27]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#302D27]">
-          {/* Brand & Wordmark */}
+          {/* Brand & Sovereign Wordmark */}
           <div className="md:col-span-5 space-y-4">
             <Logo variant="full" light />
             <p className="text-xs text-[#A8A398] max-w-sm leading-relaxed pt-1">
-              Forensic heritage restoration and bespoke luxury residential additions across Auckland, New Zealand. Led by Founder Arthur (Todd James) Henderson. Operational since 1997 with nearly three decades of continuous master craftsmanship.
+              Confidential historical restoration, fortified private sanctuaries, and rare ancient timber joinery for sovereign royal families, Emirati dynasties, and high-profile private clients globally. Led by Founder Arthur (Todd James) Henderson. Operational since 1997.
             </p>
-            <div className="text-xs text-[#827D74]">
-              Est. 1997 · Operational Since 1997 · Tāmaki Makaurau, New Zealand
+            <div className="text-xs text-[#827D74] flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-[#B89053]" />
+              <span>Est. 1997 · Strict Bilateral Non-Disclosure Covenant</span>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Selected Classified Works */}
           <div className="md:col-span-3 space-y-3 text-xs">
             <div className="uppercase tracking-widest text-white/50 text-[11px] font-semibold">
-              Selected Works
+              Classified Records
             </div>
             <ul className="space-y-2 text-[#C2BEB4]">
-              <li><a href="#portfolio" className="hover:text-white transition-colors">The Marine Parade Villa (Herne Bay)</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Ponsonby Street Pavilion</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Victoria Avenue Residence (Remuera)</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Richmond Road Joinery (Grey Lynn)</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition-colors">Maritime Villa (Devonport)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Sanctuary VII (Coastal Sovereign Compound)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">The Imperial Pavilion (East Asia)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Alpine High-Country Redoubt (NZ)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Citadel Enclave (Mediterranean)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Diplomatic Palais & Vault (Central Europe)</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">The Ridge Atoll Sanctuary (Oceania)</a></li>
             </ul>
           </div>
 
-          {/* Practice & Journal */}
+          {/* Secure Practice & Dispatch */}
           <div className="md:col-span-4 space-y-3 text-xs">
-            <div className="uppercase tracking-widest text-white/50 text-[11px] font-semibold">
-              The Practice
+            <div className="uppercase tracking-widest text-white/50 text-[11px] font-semibold flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B89053]" />
+              <span>The Private Practice</span>
             </div>
             <div className="space-y-2 text-[#C2BEB4]">
-              <div>Registered Master Builders Association NZ (#38102)</div>
-              <div>Heritage New Zealand Pouhere Taonga Recognized Practitioner</div>
-              <div>Licensed Building Practitioner (LBP Carpentry & Site 2)</div>
-              <div className="pt-2 text-[#827D74]">
-                14 McDonald Street, Morningside, Auckland · +64 (09) 376 4820
+              <div>Private Atelier & Timber Curing Vaults</div>
+              <div className="text-[#827D74]">Southern Alpine Sector, Remote Conservation Boundary, South Island, New Zealand</div>
+              <div className="pt-1">Administrative Dispatch & Courier:</div>
+              <div className="text-[#827D74]">Diplomatic Bag / P.O. Box 4902, Southern Alpine District, New Zealand</div>
+              <div className="pt-1 flex items-center gap-1.5 text-[#B89053]">
+                <Mail className="w-3.5 h-3.5" />
+                <a href="mailto:private-office@hendersonrestorations.co.nz" className="hover:underline font-mono">
+                  private-office@hendersonrestorations.co.nz
+                </a>
               </div>
             </div>
           </div>
@@ -53,9 +61,14 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Restorations by Henderson & Co. Ltd. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <span>Auckland Special Character Overlay Compliance</span>
+            <span className="flex items-center gap-1">
+              <Lock className="w-3 h-3 text-[#B89053]" />
+              <span>Multi-Jurisdictional Non-Disclosure Covenant</span>
+            </span>
             <span>·</span>
-            <span>Privacy Policy</span>
+            <span>Encrypted Archival Standard</span>
+            <span>·</span>
+            <span>Zero Public Disclosure Policy</span>
           </div>
         </div>
       </div>

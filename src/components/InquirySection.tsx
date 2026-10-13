@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle, Clock, Calendar, FileText, Send, AlertCircle, Sparkles, Building2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, CheckCircle, Shield, AlertCircle, Lock, KeyRound, FileCheck, Globe, Mail, ShieldAlert } from 'lucide-react';
 
 interface InquirySectionProps {
   prefilledProject?: string;
@@ -7,80 +7,47 @@ interface InquirySectionProps {
 
 export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject }) => {
   const [formData, setFormData] = useState({
-    name: '',
+    representativeName: '',
+    familyOffice: '',
     email: '',
-    phone: '',
-    suburb: 'Ponsonby',
-    customSuburb: '',
-    projectType: 'Heritage Villa Restoration',
-    plansStatus: 'Concept Drawings in Progress',
-    budgetRange: '$500,000 – $1,000,000 NZD',
-    timeline: '3 to 6 Months',
-    message: prefilledProject ? `I am inquiring regarding a restoration or renovation project similar to "${prefilledProject}".` : '',
-    hasHeritageConsent: 'Unsure / Need Guidance',
+    secureChannel: '',
+    jurisdiction: 'Arabian Gulf / Middle East',
+    scope: 'Sovereign Heritage Restoration & Fortification',
+    estimatedBudget: '$5M – $15M USD',
+    ndaAgreed: false,
+    confidentialNotes: prefilledProject ? `Inquiry regarding classified dossier: ${prefilledProject}` : '',
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    if (prefilledProject) {
+      setFormData((prev) => ({
+        ...prev,
+        confidentialNotes: `Inquiry regarding classified dossier: ${prefilledProject}`,
+      }));
+    }
+  }, [prefilledProject]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const aucklandSuburbs = [
-    'Herne Bay',
-    'Ponsonby',
-    'Grey Lynn',
-    'Devonport',
-    'Remuera',
-    'Parnell',
-    'Mount Eden',
-    'Epsom',
-    'Takapuna',
-    'Omaha / Matakana Coast',
-    'Other Auckland Suburb'
-  ];
-
-  const projectTypes = [
-    'Heritage Villa Restoration (Victorian 1880–1905)',
-    'Edwardian & Arts/Crafts Estate Restoration',
-    'Luxury Contemporary Pavilion & Villa Extension',
-    'Bespoke Joinery & Vacuum Sash Window Retrofit',
-    'Complete Ground-Up Architectural Renovation',
-  ];
-
-  const plansStatuses = [
-    'Consented Architectural Drawings Ready',
-    'Concept Drawings with Architect',
-    'Seeking Design-Build / Architect Recommendation',
-    'Early Feasibility & Pre-Purchase Advice',
-  ];
-
-  const budgetRanges = [
-    '$250,000 – $500,000 NZD',
-    '$500,000 – $1,000,000 NZD',
-    '$1,000,000 – $2,500,000 NZD',
-    '$2,500,000+ NZD',
-  ];
-
-  const timelines = [
-    'Immediate (Next 1–3 Months)',
-    '3 to 6 Months',
-    '6 to 12 Months',
-    'Planning for Next Year (2027)',
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-      setError('Please complete your name, email, and contact number so Arthur Henderson can review your inquiry.');
+    if (!formData.representativeName.trim() || !formData.email.trim() || !formData.secureChannel.trim()) {
+      setError('Please provide your name, verification email, and secure contact channel for administrative vetting.');
+      return;
+    }
+    if (!formData.ndaAgreed) {
+      setError('You must confirm willingness to execute our standard Bilateral Non-Disclosure Covenant prior to confidential discussions.');
       return;
     }
     setError(null);
     setIsSubmitting(true);
 
-    // Simulate reliable dispatch
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }, 700);
   };
 
   return (
@@ -89,103 +56,117 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              Project Inquiries & Private Consultations
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
+              <Lock className="w-3.5 h-3.5" />
+              <span>Private Office & Administrative Clearance</span>
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
-              Begin the Conversation
+              Initiate Confidential Dialogue
             </h2>
-            <p className="text-sm md:text-base text-[#59554E] mt-3">
-              We take on a limited roster of 4–6 major residential restorations and bespoke extensions each year to ensure Founder Arthur (Todd James) Henderson’s personal oversight on every joint and sill.
+            <p className="text-sm md:text-base text-[#59554E] mt-3 leading-relaxed">
+              Restorations by Henderson & Co. operates under strict policy discretion. We limit global commitments to 3–4 sovereign and private dynasty commissions annually, ensuring Arthur (Todd James) Henderson’s undivided personal oversight.
             </p>
           </div>
           <div className="text-xs text-[#706B62] space-y-1">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-700" />
-              <span className="font-medium text-[#1C1B18]">Currently Booking Q3/Q4 2026 & 2027 Works</span>
+              <span className="w-2 h-2 rounded-full bg-amber-600" />
+              <span className="font-medium text-[#1C1B18]">Administrative Review Queue: Active</span>
             </div>
-            <div>Direct Principal Review: Within 24 Business Hours</div>
+            <div>Bilateral Non-Disclosure Agreements Executed Prior to Detail Release</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column: Direct Studio Contact & Trust Signals */}
+          {/* Left Column: Discreet Location & Security Protocols */}
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-white p-8 border border-[#E5E1D8] space-y-6">
-              <h3 className="font-serif text-2xl text-[#1C1B18]">
-                Auckland Studio & Mill
-              </h3>
+              <div className="flex items-center justify-between border-b border-[#E5E1D8] pb-4">
+                <h3 className="font-serif text-2xl text-[#1C1B18]">
+                  The Private Office
+                </h3>
+                <span className="text-[10px] font-mono uppercase bg-[#F3F0EB] px-2 py-1 text-[#7A5B3E] border border-[#DCD6CA]">
+                  RESTRICTED ACCESS
+                </span>
+              </div>
 
               <p className="text-xs md:text-sm text-[#59554E] leading-relaxed">
-                Our central joinery workshop and timber storage mill is situated in Morningside, minutes from Auckland's premier heritage precincts.
+                To safeguard client privacy and maintain total operational security, physical access to our New Zealand facilities is conducted strictly via private invitation, prior accreditation, and secure escort.
               </p>
 
-              <div className="space-y-4 pt-4 border-t border-[#E5E1D8] text-xs">
+              <div className="space-y-4 pt-2 text-xs">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <Shield className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Workshop Address</span>
-                    <span className="text-[#706B62]">14 McDonald Street, Morningside, Auckland 1025</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-semibold text-[#1C1B18] block">Direct Telephone</span>
-                    <a href="tel:+6493764820" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors">
-                      +64 (09) 376 4820
-                    </a>
+                    <span className="font-semibold text-[#1C1B18] block">Atelier & Curing Vault Location</span>
+                    <span className="text-[#706B62]">
+                      Southern Alpine Sector, Remote Conservation Boundary, South Island, New Zealand
+                    </span>
+                    <span className="text-[11px] text-[#7A5B3E] block mt-0.5 font-mono">
+                      (Coordinates & Private Air-Strip Details Disclosed Upon Vetting)
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Inquiry Email</span>
-                    <a href="mailto:inquiries@hendersonrestorations.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors">
-                      inquiries@hendersonrestorations.co.nz
+                    <span className="font-semibold text-[#1C1B18] block">Administrative Dispatch & Courier</span>
+                    <span className="text-[#706B62]">
+                      Diplomatic Bag / P.O. Box 4902, Southern Alpine District, New Zealand
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Lock className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-[#1C1B18] block">Direct Electronic Inquiries</span>
+                    <a href="mailto:private-office@hendersonrestorations.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors font-mono">
+                      private-office@hendersonrestorations.co.nz
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <KeyRound className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Operating Hours</span>
-                    <span className="text-[#706B62]">Monday – Friday: 7:00 AM – 5:30 PM NZST</span>
+                    <span className="font-semibold text-[#1C1B18] block">Encrypted Voice / Signal</span>
+                    <span className="text-[#706B62]">
+                      Signal Protocol ID provided via verified diplomatic transmission
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Auckland Heritage Consultation Checklist */}
+            {/* Verification Protocol Box */}
             <div className="bg-[#EFECE6] p-6 border border-[#DCD6CA] space-y-3 text-xs">
-              <div className="font-semibold uppercase tracking-wider text-[#7A5B3E]">
-                What to Prepare for Your Discovery Call
+              <div className="font-semibold uppercase tracking-wider text-[#7A5B3E] flex items-center gap-2">
+                <FileCheck className="w-4 h-4" />
+                <span>The Four-Stage Vetting Protocol</span>
               </div>
-              <ul className="space-y-2 text-[#59554E]">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E]" />
-                  <span>Property address & approximate construction era (e.g. 1890s Villa, 1920s Bungalow).</span>
+              <ul className="space-y-2.5 text-[#59554E]">
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-[#7A5B3E] font-semibold">01.</span>
+                  <span>Administrative Identity Verification of Representative or Family Office Trustee.</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E]" />
-                  <span>Existing architectural floor plans or preliminary sketches (if available).</span>
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-[#7A5B3E] font-semibold">02.</span>
+                  <span>Execution of Mutual Bilateral Non-Disclosure Agreement (NDA).</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E]" />
-                  <span>Key priorities: structural levelling, sash insulation, or modern living pavilion.</span>
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-[#7A5B3E] font-semibold">03.</span>
+                  <span>Encrypted Discovery Briefing with Founder Arthur (Todd James) Henderson.</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E]" />
-                  <span>Known heritage covenants or Auckland Council Special Character notations.</span>
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-[#7A5B3E] font-semibold">04.</span>
+                  <span>Private In-Person Inspection of Materials Vault & Unredacted Case Studies.</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Right Column: Comprehensive Architectural Inquiry Form */}
+          {/* Right Column: Confidential Vetting & Commission Form */}
           <div className="lg:col-span-7">
             {submitted ? (
               <div className="bg-white p-10 border border-[#E5E1D8] text-center space-y-6">
@@ -193,35 +174,39 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-3xl text-[#1C1B18]">
-                  Thank You, {formData.name}
+                  Transmission Received
                 </h3>
                 <p className="text-sm text-[#59554E] max-w-md mx-auto leading-relaxed">
-                  Your project inquiry regarding your <span className="font-semibold text-[#1C1B18]">{formData.suburb}</span> residence has been received directly by Founder Arthur (Todd James) Henderson. Arthur will review your architectural notes and phone you within 24 business hours to arrange an initial on-site consultation.
+                  Your communication has been encrypted and routed directly to the Private Office administrator and Founder Arthur (Todd James) Henderson. An encrypted verification response and mutual NDA packet will be dispatched within 24 hours.
                 </p>
-                <div className="pt-6 border-t border-[#E5E1D8] text-xs text-[#706B62]">
-                  Reference ID: NZ-RHC-{Math.floor(100000 + Math.random() * 900000)} · A confirmation has been sent to {formData.email}
+                <div className="pt-6 border-t border-[#E5E1D8] text-xs font-mono text-[#706B62]">
+                  Encrypted Dispatch Reference: NZ-SEC-{Math.floor(100000 + Math.random() * 900000)} · Sealed Transmission
                 </div>
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     setFormData({
                       ...formData,
-                      message: '',
+                      confidentialNotes: '',
                     });
                   }}
                   className="px-6 py-2.5 text-xs text-[#7A5B3E] underline hover:text-[#1C1B18]"
                 >
-                  Submit another inquiry or add details
+                  Submit supplementary documentation
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 border border-[#E5E1D8] space-y-6">
                 <div className="border-b border-[#E5E1D8] pb-4">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#7A5B3E] mb-1">
+                    <Lock className="w-3.5 h-3.5" />
+                    <span>ENCRYPTED INQUIRY FORM</span>
+                  </div>
                   <h3 className="font-serif text-2xl text-[#1C1B18]">
-                    Property & Project Consultation Form
+                    Confidential Commission Registration
                   </h3>
                   <p className="text-xs text-[#706B62] mt-1">
-                    Direct confidential review by Principal Builder Arthur (Todd James) Henderson.
+                    All inputs remain strictly confidential under our foundational privacy covenants.
                   </p>
                 </div>
 
@@ -232,164 +217,154 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   </div>
                 )}
 
-                {/* Primary Contacts */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Representative Name */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Your Full Name *
+                      Principal / Representative Name *
                     </label>
                     <input
                       type="text"
                       required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. William Pemberton"
+                      value={formData.representativeName}
+                      onChange={(e) => setFormData({ ...formData, representativeName: e.target.value })}
+                      placeholder="e.g. Dr. H. Al-Mansoor / Legal Counsel"
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     />
                   </div>
+
+                  {/* Family Office / Entity */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Email Address *
+                      Entity / Royal Household / Family Office
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.familyOffice}
+                      onChange={(e) => setFormData({ ...formData, familyOffice: e.target.value })}
+                      placeholder="e.g. Private Dynasty Trust / Confidential"
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Verification Email */}
+                  <div>
+                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
+                      Verification Email *
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. wpemberton@gmail.com"
+                      placeholder="counsel@family-trust.ch"
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     />
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Secure Channel */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Contact Phone Number *
+                      Secure Phone / Signal Channel *
                     </label>
                     <input
                       type="tel"
                       required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. +64 21 890 1234"
+                      value={formData.secureChannel}
+                      onChange={(e) => setFormData({ ...formData, secureChannel: e.target.value })}
+                      placeholder="+971 50 ... / +41 22 ..."
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     />
                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Geographic Jurisdiction */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Auckland Suburb / Locality
+                      Territory / Jurisdiction
                     </label>
                     <select
-                      value={formData.suburb}
-                      onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
+                      value={formData.jurisdiction}
+                      onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     >
-                      {aucklandSuburbs.map((sub) => (
-                        <option key={sub} value={sub}>{sub}</option>
-                      ))}
+                      <option value="Arabian Gulf / Middle East">Arabian Gulf / Middle East (Emirati & Royal Estates)</option>
+                      <option value="East Asia (Dynasty Domain)">East Asia (Sovereign & Private Compounds)</option>
+                      <option value="Southern Alps / New Zealand">Southern Alps & Lakes / New Zealand</option>
+                      <option value="Continental Europe (Palais & Alpine)">Continental Europe (Private Palais & Alpine)</option>
+                      <option value="Pacific Atoll / Island Enclave">Pacific Atoll / Private Island</option>
+                      <option value="Confidential Global Jurisdiction">Other Confidential Global Jurisdiction</option>
+                    </select>
+                  </div>
+
+                  {/* Commission Scope */}
+                  <div>
+                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
+                      Commission Typology
+                    </label>
+                    <select
+                      value={formData.scope}
+                      onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
+                    >
+                      <option value="Sovereign Heritage Restoration & Fortification">Historical Palace Restoration & Fortification</option>
+                      <option value="Subterranean Vault & Private Archive">Subterranean Vault & Art Archive</option>
+                      <option value="Ancient Swamp Kauri Allocation">Ancient 45,000-Year Kauri Joinery Allocation</option>
+                      <option value="Stealth Ballistic Joinery & Acoustic Isolation">Stealth Ballistic Fenestration & EMP Shielding</option>
+                      <option value="Full Sovereign Estate Masterplan">Full Sovereign Estate Masterplan</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Project Typology & Drawing Status */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Primary Project Type
-                    </label>
-                    <select
-                      value={formData.projectType}
-                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    >
-                      {projectTypes.map((pt) => (
-                        <option key={pt} value={pt}>{pt}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Architectural Plans Status
-                    </label>
-                    <select
-                      value={formData.plansStatus}
-                      onChange={(e) => setFormData({ ...formData, plansStatus: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    >
-                      {plansStatuses.map((ps) => (
-                        <option key={ps} value={ps}>{ps}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Investment & Timeline */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Anticipated Investment Range
-                    </label>
-                    <select
-                      value={formData.budgetRange}
-                      onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    >
-                      {budgetRanges.map((b) => (
-                        <option key={b} value={b}>{b}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Target Construction Start
-                    </label>
-                    <select
-                      value={formData.timeline}
-                      onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    >
-                      {timelines.map((t) => (
-                        <option key={t} value={t}>{t}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Project Vision & Notes */}
+                {/* Confidential Notes */}
                 <div>
                   <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                    Project Vision & Architectural Details
+                    Confidential Commission Overview & Preliminary Directives
                   </label>
                   <textarea
                     rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your property (e.g. 1902 double-bay villa with decayed veranda fretwork; looking to extend rear for open kitchen & living with floor-to-ceiling glass; would like to restore all existing sash windows and kauri floors)..."
+                    value={formData.confidentialNotes}
+                    onChange={(e) => setFormData({ ...formData, confidentialNotes: e.target.value })}
+                    placeholder="Provide generalized architectural directives (e.g. 19th-century maritime compound requiring stone consolidation, sub-floor vault, and private security fenestration; strict client confidentiality mandate)..."
                     className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E] leading-relaxed"
                   />
+                </div>
+
+                {/* Bilateral NDA Agreement Checkbox */}
+                <div className="p-4 bg-[#FAF9F6] border border-[#DCD6CA] flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="ndaAgreed"
+                    checked={formData.ndaAgreed}
+                    onChange={(e) => setFormData({ ...formData, ndaAgreed: e.target.checked })}
+                    className="mt-0.5 w-4 h-4 text-[#7A5B3E] focus:ring-[#7A5B3E] border-[#DCD6CA] cursor-pointer"
+                  />
+                  <label htmlFor="ndaAgreed" className="text-xs text-[#59554E] cursor-pointer leading-relaxed">
+                    <strong className="text-[#1C1B18]">Bilateral NDA Covenant Acceptance:</strong> I understand that all consultations, property identifiers, and material specifications are protected under strict international non-disclosure covenants. I confirm authority to represent the aforementioned principal or family office.
+                  </label>
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
                 >
                   {isSubmitting ? (
-                    <span>Submitting Inquiry to Arthur Henderson...</span>
+                    <span>Encrypting & Routing Transmission to Administrator...</span>
                   ) : (
                     <>
-                      <span>Transmit Inquiry to Principal Craftsman</span>
-                      <Send className="w-3.5 h-3.5" />
+                      <Lock className="w-3.5 h-3.5 text-[#B89053]" />
+                      <span>Transmit to Private Office Administrator Under NDA</span>
                     </>
                   )}
                 </button>
 
                 <p className="text-[11px] text-[#706B62] text-center">
-                  Your architectural vision and property address are kept strictly private. Restorations by Henderson & Co. operates with full professional indemnity and Master Build 10-Year Guarantee cover.
+                  All communications are encrypted end-to-end. Restorations by Henderson & Co. operates with an unblemished zero-leak discretion policy active since 1997.
                 </p>
               </form>
             )}

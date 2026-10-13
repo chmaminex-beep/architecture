@@ -112,16 +112,16 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
           {/* Article Footer CTA */}
           <div className="pt-8 border-t border-[#E5E1D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="text-xs text-[#706B62]">
-              Have questions about this technique on your property?
+              Technical inquiries regarding sovereign estate security are reviewed directly by the Founder.
             </div>
             <button
               onClick={() => {
                 onClose();
                 onOpenInquiry();
               }}
-              className="px-6 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer"
+              className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center gap-2"
             >
-              Discuss With Arthur Henderson
+              <span>Consult Arthur Henderson Under NDA</span>
             </button>
           </div>
         </div>

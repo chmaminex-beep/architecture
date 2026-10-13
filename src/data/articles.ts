@@ -9,7 +9,7 @@ export interface Article {
   excerpt: string;
   readTime: string;
   publishDate: string;
-  category: 'Timber Science' | 'Modern Additions' | 'Joinery Craft' | 'Heritage Consents' | 'Structural Engineering';
+  category: 'Discretion & Security' | 'Sovereign Architecture' | 'Ancient Materials' | 'Private Estates' | 'Acoustic Science';
   author: {
     name: string;
     role: string;
@@ -28,143 +28,140 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
-    id: 'restoring-120-year-old-kauri',
-    title: 'Restoring 120-Year-Old Heart Kauri: Moisture Equilibriums & Biological Consolidation',
-    excerpt: 'Old-growth Agathis australis (New Zealand Heart Kauri) possesses a resinous density unseen in modern plantation timber. Here is how our joinery workshop restores historical floorboards and weatherboards to endure another century.',
-    readTime: '6 min read',
-    publishDate: 'August 2025',
-    category: 'Timber Science',
+    id: 'architecture-of-discretion-sovereign-security',
+    title: 'The Architecture of Discretion: Concealing Ballistic Security & Seismic Portals Within Historical Heritage Envelopes',
+    excerpt: 'High-profile dynasties, royal households, and sovereign clients require impenetrable personal safety without sacrificing centuries of architectural provenance. Here is how our studio engineers hidden security systems into antique boiserie, sash windows, and stone façades.',
+    readTime: '7 min monograph',
+    publishDate: 'Monograph 29',
+    category: 'Discretion & Security',
     author: {
       name: 'Arthur (Todd James) Henderson',
       role: 'Founder & Principal Craftsman'
     },
     heroImage: imgKauriCraft,
     content: {
-      lead: 'When early Auckland carpenters erected villas across Ponsonby, Parnell, and Devonport in the late nineteenth century, virgin Northland Heart Kauri was their structural cornerstone. Dense, naturally saturated with dammar-like resins, and capable of spanning four metres without deflection, kauri is an irreplaceable architectural treasure.',
+      lead: 'When executing a multi-million-dollar restoration for a head of state, sovereign royal family, or private dynastic estate, the aesthetic brief is only half the equation. The invisible brief is total, uncompromising personal security. Conventional security retrofits disfigure historic mouldings with crude armour plates and visible cameras. Our practice specializes in the invisible integration of ballistic, acoustic, and seismic fortification behind authentic nineteenth-century joinery.',
       sections: [
         {
-          heading: '1. Why Modern Timber Treatments Fail Historical Kauri',
-          body: 'Many well-intentioned contractors treat century-old kauri as if it were modern kiln-dried radiata pine. Applying impervious polyurethane or film-forming acrylic primers locks subterranean ground humidity inside the cellular structure. Over 2 to 5 Auckland winters, moisture accumulation fosters dry rot (Serpula lacrymans) beneath an outwardly pristine veneer. Our workshop strictly utilizes micro-porous boiled linseed oils, natural citrus terpene thinners, and breathable zinc-oxide linseed paints that allow the wood to breathe in harmony with Auckland’s maritime humidity.',
-          craftsmanTip: 'Always measure timber equilibrium moisture content with pinless capacitance probes before undertaking mechanical sanding. If internal relative humidity exceeds 14%, forced dehumidification must precede any finish application.'
+          heading: '1. Stealth Ballistic Fenestration Behind Authentic Putty Sightlines',
+          body: 'Traditional double-hung sash windows and French casements are the most vulnerable perimeter points on any estate. Rather than replacing delicate timber stiles with bulky bullet-proof frames that broadcast security measures to the outside world, we mill custom composite sashes. Inside the hollow core of salvaged 130-year-old Heart Kauri, we laminate lightweight Dyneema and ceramic ballistic sheets capable of withstanding high-powered rifle rounds, paired with multi-ply vacuum-laminated ballistic glass that preserves historical 45-degree putty sightlines.',
+          craftsmanTip: 'Arthur Henderson’s Discretion Rule: A security measure is only truly effective when it is completely indistinguishable from 1890s craftsmanship. Visible armour is an architectural and tactical failure.'
         },
         {
-          heading: '2. Dutchmen Inlays and Forensic Consolidation',
-          body: 'Where rot or mechanical trauma has degraded an original sill or verandah baluster, we never remove sound historic wood. We hand-chisel the decayed sector back to virgin heartwood, stabilize the fungal margins with borate salts, and hand-fit a Dutchmen inlay (graving piece) harvested from our temperature-controlled stock of 1880s salvaged kauri joists. Using matching grain direction and traditional hide-glue or reversible maritime epoxy, the resulting repair is virtually invisible and structurally superior.',
-          craftsmanTip: 'Grain orientation is non-negotiable. Scribe the inlay so annual growth rings mirror the parent board precisely; mismatched expansion coefficients will pop the repair joint within two seasonal cycles.'
+          heading: '2. Electromagnetic (EMP) Shielding Within Antique Boiserie',
+          body: 'For private protocol reception rooms and family financial archives, electronic eavesdropping and EMP threats require radio-frequency attenuation. Beneath hand-waxed French walnut or native rimu wall panels, our joiners install continuous, micro-ground copper mesh slip-diaphragms. The resulting Faraday enclosure prevents signal leakage while remaining completely imperceptible to guests and dignitaries.',
+          craftsmanTip: 'Movement joints must maintain uninterrupted electrical conductivity. We utilize spring-loaded beryllium-copper contact fingers hidden behind historic skirting boards to absorb structural building settling without breaking the RF shield.'
         },
         {
-          heading: '3. Replicating Hand-Planed Scallops',
-          body: 'Victorian villas were shaped with hand jack planes, giving the wood a subtle, tactile warmth that modern high-speed rotary thicknessers obliterate into sterile plastic uniformity. For high-visibility hallway architraves and parlour cornices, our joiners finish timber using traditional hand planes with custom-ground hollowing irons.'
+          heading: '3. Hidden Mechanical Retreat Portals in Reclaimed Timber Frameworks',
+          body: 'Within large sovereign estates, concealed safe rooms and emergency exits are engineered directly into the joinery. By counterweighting 800-kilogram steel-reinforced bookshelves using silent hydraulic counterweights and electromagnetic deadbolts hidden in timber mouldings, a room can be sealed in under 1.8 seconds with a biometric gesture or encrypted remote command.'
         }
       ],
       takeaways: [
-        'Virgin Heart Kauri contains natural terpenes that resist rot if allowed to breathe.',
-        'Never seal heritage floorboards with high-build polyurethanes in uninsulated sub-floors.',
-        'Dutchmen inlays using salvaged vintage timber preserve up to 90% of original architectural fabric.',
-        'Breathable mineral or linseed paint systems outlast synthetic acrylics on Auckland weatherboards.'
+        'Sovereign security must remain completely invisible from both interior salons and exterior sightlines.',
+        'Composite wood-ballistic sash joinery maintains period profiles while stopping high-caliber rounds.',
+        'Faraday shielding is seamlessly integrated behind restored antique timber boiserie panels.',
+        'All client security specifications remain encrypted under permanent bilateral non-disclosure agreements.'
       ]
     }
   },
   {
-    id: 'merging-villas-with-modern-pavilions',
-    title: 'The Razor’s Edge: Merging Auckland Heritage Villas with Minimalist Glazed Pavilions',
-    excerpt: 'How we engineer hidden structural steel portals, manage seismic diaphragms, and craft seamless floor transitions between 1905 villa hallways and 2025 open-plan living pavilions.',
-    readTime: '8 min read',
-    publishDate: 'June 2025',
-    category: 'Modern Additions',
+    id: 'ancient-timber-reserves-swamp-kauri',
+    title: 'Ancient Timber Reserves: Sourcing 45,000-Year-Old Pre-Glacial Swamp Kauri for Sovereign Dynasties',
+    excerpt: 'Deep in the peat bogs of New Zealand’s remote Northland lie colossal trees preserved since before the last Ice Age. How Henderson & Co. harvests, cures, and crafts this rarest of biological treasures for royal and private estates globally.',
+    readTime: '8 min monograph',
+    publishDate: 'Monograph 28',
+    category: 'Ancient Materials',
     author: {
       name: 'Arthur (Todd James) Henderson',
       role: 'Founder & Principal Craftsman'
     },
     heroImage: imgPonsonby,
     content: {
-      lead: 'The holy grail of Auckland residential architecture is the "villa-to-pavilion" typology: retaining the romantic street presence, soaring pressed ceilings, and quiet intimacy of the heritage front bedrooms, while unleashing the rear of the property into an expansive, sun-filled architectural haven.',
+      lead: 'For the world’s most discerning collectors and royal dynasties, standard luxury materials such as marble and plantation hardwoods are commonplace. True architectural distinction lies in materials with irreplaceable geological provenance. At our remote atelier, we maintain the world’s most extensive private reserve of carbon-dated Ancient Swamp Kauri—timber that fell between 30,000 and 50,000 years ago.',
       sections: [
         {
-          heading: '1. The Acoustic and Structural Threshold',
-          body: 'The greatest pitfall in hybrid restorations is an abrupt, clumsy collision between the old house and the modern wing. We design what we term the "Architectural Caesura"—a transitional gallery or glass-flanked walkway that allows the eye and the ear to decompress. Acoustically, the high reverberance of concrete and glass is dampened using concealed slatted timber baffles, preventing living room reverberation from bleeding into restful heritage bedrooms.',
-          craftsmanTip: 'Always construct an independent movement joint (slip-joint) at the threshold. A flexible 100-year-old timber structure responds to wind gusts with minor lateral deflection, whereas a rigid steel and concrete pavilion will crack unless isolated with elastomeric expansion gaskets.'
+          heading: '1. Radiocarbon Provenance and Cellular Iridescence',
+          body: 'Buried in anoxic peat bogs through geological upheavals, this ancient wood underwent no decay. As iron and mineral salts permeated the cell walls, the grain developed a holographic optical phenomenon known as chatoyancy. When illuminated by natural light, the surface of a finished Henderson boardroom table or salon wall panel shimmers with undulating golden amber fire that no synthetic finish or young wood can ever replicate.',
+          craftsmanTip: 'Arthur Henderson’s Material Mandate: Every specimen of ancient timber allocated to a client commission is accompanied by an authenticated accelerator mass spectrometry (AMS) radiocarbon certificate from the University of Waikato Radiocarbon Dating Laboratory.'
         },
         {
-          heading: '2. Concealed Seismic Portals within Kauri Studs',
-          body: 'To open up a 10-metre continuous opening across the rear garden without visible chunky steel columns ruining the clean architectural lines, we insert custom portal frames fabricated from Grade 350 structural steel into the kauri balloon framing. By flitching steel plates between original timber studs and bolting through with high-tensile fasteners, the villa’s external envelope remains structurally unyielding while the living spaces float freely.',
-          craftsmanTip: 'Protect all steel elements with high-durability zinc coatings before enclosing them within heritage timber envelopes to prevent galvanic corrosion against natural wood acids.'
-        },
-        {
-          heading: '3. Flush Floor Transitions: Timber to Honed Travertine',
-          body: 'Nothing breaks the illusion of architectural mastery faster than an awkward 20mm step or aluminium carpet trim. We laser-level the new floor slab so that restored 22mm Mataī tongue-and-groove boards align to within 0.5mm with external heated stone pavers, creating seamless zero-threshold transitions that glide effortlessly into the garden.'
+          heading: '2. The 36-Month Decompression Curing Protocol',
+          body: 'Extracting a 40-tonne ancient log from saturated sub-surface clay requires surgical patience. Rapid kiln drying causes severe cellular collapse. We stage all logs through our humidity-controlled curing vault over three full years, gradually displacing deep subterranean moisture with natural pine terpenes and organic tung oils.',
+          craftsmanTip: 'Never rush ancient timber into dry desert climates (e.g. Gulf estates) without gradual micro-climate acclimatization crates designed by our logistics team.'
         }
       ],
       takeaways: [
-        'A dedicated architectural transition zone eases the tactile shift from heritage intimacy to open modern space.',
-        'Seismic slip-joints are mandatory to prevent micro-cracking between timber villas and steel additions.',
-        'Flitched steel portal frames can open up 10m spans without dropping intrusive bulkheads.',
-        'Zero-threshold flush floor lines connect interior living directly to Auckland outdoor living.'
+        'Ancient Swamp Kauri possesses natural chatoyance and geological provenance dating back 45,000 years.',
+        'Sovereign commissions receive authenticated radiocarbon dating certificates for estate archives.',
+        'A 3-year specialized curing protocol guarantees dimensional stability in international climates.',
+        'All timber movements are executed through private diplomatic shipping channels.'
       ]
     }
   },
   {
-    id: 'sash-window-restoration-thermal-retrofit',
-    title: 'The Art of the Double-Hung Sash: Counterweights, Vacuum Glazing & Putty Sightlines',
-    excerpt: 'Why throwing out original wooden sash windows for clumsy aluminium replacements is an architectural tragedy. How we retrofit vacuum-insulated double glazing without sacrificing historical authenticity.',
-    readTime: '7 min read',
-    publishDate: 'April 2025',
-    category: 'Joinery Craft',
+    id: 'bilateral-nda-policy-privacy-mandates',
+    title: 'The Bilateral Non-Disclosure Covenant: Why Henderson & Co. Has Maintained an Unblemished Privacy Record Since 1997',
+    excerpt: 'A detailed look at the legal and physical protocols that govern our workshop, on-site personnel, supply chains, and photographic archives when working for sovereign royalty and high-profile individuals worldwide.',
+    readTime: '6 min monograph',
+    publishDate: 'Monograph 27',
+    category: 'Discretion & Security',
     author: {
       name: 'Arthur (Todd James) Henderson',
       role: 'Founder & Principal Craftsman'
     },
     heroImage: imgHerneBay,
     content: {
-      lead: 'An Auckland villa’s windows are its expressive eyes. The slender proportions of Victorian sash stiles, delicate meeting rails, and bevelled glazing bars give a streetscape its unmistakable rhythm. Ripping them out to install off-the-shelf aluminium frames instantly degrades property heritage value by hundreds of thousands of dollars.',
+      lead: 'In the high-profile architectural restoration market, the greatest risk to a family office or sovereign royal house is exposure. A single contractor sharing a geo-tagged social media post or floorplan drawing can compromise perimeter security and family privacy for generations. Since our founding in 1997, Restorations by Henderson & Co. has operated with a flawless zero-leak confidentiality record.',
       sections: [
         {
-          heading: '1. The Counterbalance Geometry',
-          body: 'Original sash windows rely on cast-iron or lead counterweights suspended in hidden wall pockets by woven cotton sash cords running over brass pulleys. When homeowners report "stuck" or "slamming" windows, it is invariably because successive decades of thick paint have gummed the parting beads, or cords have frayed. We completely extract the sashes, strip all paint back to bare timber in our workshop, machine concealed bronze draft-excluding pile channels, and recalculate the exact ballast weight to within 50 grams.',
-          craftsmanTip: 'When replacing cotton sash cords, we upgrade to synthetic Kevlar-core braided cords. They preserve authentic visual period texture while boasting a 350kg tensile breaking strain that will not rot or stretch for 80+ years.'
+          heading: '1. The Four-Tier Confidentiality Protocol',
+          body: 'Every member of our workshop, from master carpenters to transport logistics directors, is bound by international multi-jurisdictional NDAs with severe liquidated damage covenants. Mobile phones and recording devices are strictly prohibited across all workshop floors and client estates. Component parts are manufactured under encrypted numerical designations (e.g., "Project Sanctuary VII") rather than client names or identifiable coordinates.',
+          craftsmanTip: 'Arthur Henderson’s Administrative Standard: No third-party sub-contractors are ever permitted on-site. All works are performed exclusively by vetted, permanent in-house craftsmen who have served with the firm for a minimum of seven years.'
         },
         {
-          heading: '2. The Vacuum Glazing Breakthrough',
-          body: 'Until recently, double-glazing a heritage sash required replacing delicate 18mm timber glazing bars with clunky 32mm modern frames that look dreadful from the street. We now integrate ultra-thin 8.3mm vacuum-insulated glass units (VIG). With a micro-vacuum space between two panes, these achieve an incredible thermal R-value of 0.70 m²·K/W (equivalent to thick triple glazing) while fitting directly into the original 1900s rebate.',
-          craftsmanTip: 'Bed the vacuum units in traditional linseed oil putty blended with modern elasticizing resins to preserve the authentic 45-degree hand-trowelled exterior chamfer.'
+          heading: '2. Secure Digital Air-Gapping and Encrypted Communications',
+          body: 'Architectural schematics, structural engineering models, and client communication channels are hosted on sovereign air-gapped servers with zero connection to commercial cloud environments. Client consultations are conducted exclusively via signal-encrypted protocols or in-person diplomatic rendezvous.',
+          craftsmanTip: 'Upon commission completion, all temporary physical mock-ups, digital fabrication code, and off-cut stamps are incinerated or returned to the client’s family office archivist under witnessed chain of custody.'
         }
       ],
       takeaways: [
-        'Historic sashes can achieve modern thermal performance without altering exterior profiles.',
-        'Kevlar-reinforced cords and hidden bronze brushes eliminate draughts and rattling.',
-        'Auckland Council Special Character rules strictly favor window restoration over replacement.'
+        'Multi-jurisdictional bilateral NDAs protect all client identities and physical coordinates.',
+        'All architectural models and communications remain strictly air-gapped from commercial clouds.',
+        'Zero subcontractors: 100% in-house vetted craftsmen with security clearances.',
+        'Physical disposal covenants ensure no off-cut or blueprint ever leaves client custody.'
       ]
     }
   },
   {
-    id: 'auckland-council-heritage-rules',
-    title: 'Navigating Auckland Council Special Character Overlays & Heritage NZ Consents',
-    excerpt: 'Demystifying the Auckland Unitary Plan, Chapter D18 Special Character Area rules, and Pouhere Taonga approvals for high-end residential alterations.',
-    readTime: '5 min read',
-    publishDate: 'February 2025',
-    category: 'Heritage Consents',
+    id: 'acoustic-isolation-private-residences',
+    title: 'Acoustic Decoupling in Sovereign Sanctuaries: Decibel Attenuation Across Grand Historical Spaces',
+    excerpt: 'How our master joiners achieve recording-studio-grade acoustic privacy within expansive heritage parlours, treaty rooms, and private family compounds.',
+    readTime: '5 min monograph',
+    publishDate: 'Monograph 26',
+    category: 'Acoustic Science',
     author: {
       name: 'Arthur (Todd James) Henderson',
       role: 'Founder & Principal Craftsman'
     },
     heroImage: imgRemuera,
     content: {
-      lead: 'Whether your property is located in Grey Lynn (SCAR - Residential Isthmus A) or a waterfront jewel in Devonport, modifying a heritage home in Auckland requires rigorous navigation of regulatory frameworks.',
+      lead: 'High-profile diplomacy and private estate living demand absolute acoustic privacy. A private conversation held in a state room must remain inaudible to staff, security personnel, or adjoining suites. Achieving STC 58+ acoustic ratings while preserving ornate plaster cornicing, high ceilings, and heritage parquet floors requires advanced physics married to traditional joinery.',
       sections: [
         {
-          heading: '1. What Triggers Resource Consent in Special Character Overlays',
-          body: 'Many homeowners mistakenly believe resource consent is only required for large extensions. Under the Auckland Unitary Plan, altering a front-facing veranda, modifying original roof pitches, or replacing decorative timber fretwork can trigger a restricted discretionary consent. Because we maintain our own in-house historical mould library and work closely with Auckland’s top heritage conservation architects, our applications consistently proceed through non-notified pathways without costly delays.',
-          craftsmanTip: 'Document everything before touching a hammer. High-resolution archival photographic records and timber profile scans submitted with the consent application demonstrate to Council officers that you respect the heritage continuum.'
+          heading: '1. The Floating Floor System Over Historic Joists',
+          body: 'To eliminate footfall transmission and structural vibration, we construct floating sub-floor diaphragms using high-density elastomeric acoustic pucks. Upon this isolated substructure, original 130-year-old tongue-and-groove boards are reinstalled using concealed brass cleats, ensuring authentic tactile creak-free silence.',
+          craftsmanTip: 'Arthur Henderson’s Acoustic Rule: Never decouple the floor without also isolating the wall perimeter. A 2mm gap against the baseboard will leak 80% of acoustic energy.'
         },
         {
-          heading: '2. The Streetscape Dominance Rule',
-          body: 'Council heritage planners evaluate projects primarily through the lens of streetscape contribution. You can often build a dramatic modern double-storey extension at the rear, provided the primary ridgeline of the front villa remains the dominant visual element from the pedestrian viewpoint.'
+          heading: '2. Bespoke Acoustic Heritage Doors with Concealed Drop Seals',
+          body: 'Historic panelled doors are notoriously porous to speech. We mill solid multi-layered core doors with interior lead and viscoelastic damping sheets, faced on both sides with authentic 19th-century timber veneer. Concealed mechanical drop seals deploy silently into the threshold when the door latches, creating a hermetic acoustic seal.'
         }
       ],
       takeaways: [
-        'Auckland Unitary Plan Chapter D18 strictly protects street-facing facades and roof forms.',
-        'Non-notified consent approval depends on forensic documentation and authentic materials.',
-        'Rear contemporary additions are welcomed when respectful transitions are engineered.'
+        'Acoustic decoupling achieves STC 58+ privacy without altering historical visual profiles.',
+        'Floating sub-floor assemblies eliminate footfall vibration across antique parquet.',
+        'Bespoke composite lead-core timber doors provide hermetic acoustic containment.'
       ]
     }
   }

@@ -58,11 +58,11 @@ export default function App() {
         <BeforeAfterSlider
           beforeImage={craftKauri}
           afterImage={projectPonsonby}
-          beforeLabel="1905 Heritage Fabric & Structural Consolidation"
-          afterLabel="Restored Villa & Cantilevered Glazed Pavilion"
-          title="From Century-Old Timber to Modern Masterpiece"
-          subtitle="Ponsonby Street Villa Transformation · Auckland"
-          description="Slide across to examine how our master team structurally preserved the 120-year-old kauri weatherboard street frontage while opening the rear into an expansive light-filled architectural pavilion."
+          beforeLabel="Structural Consolidation & Subterranean Vault Assembly"
+          afterLabel="Completed Sovereign Pavilion & Glazed Sanctuary"
+          title="The Anatomy of Transformation · Sovereign Commission"
+          subtitle="Classified Private Compound · East Asia Domain (EA-DYNA-02)"
+          description="Slide across to examine how our master team preserved centuries-old hand-hewn structural timber columns while interfacing an expansive 20-metre cantilevered glass pavilion under strict bilateral non-disclosure covenants."
         />
 
         {/* Extensive Architectural Portfolio Showcase */}

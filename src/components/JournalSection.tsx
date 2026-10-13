@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, BookOpen, Clock } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Lock, Shield } from 'lucide-react';
 import { ARTICLES, Article } from '../data/articles';
 import { handleImageError } from '../utils/imageFallback';
 
@@ -10,7 +10,7 @@ interface JournalSectionProps {
 export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const categories = ['All', 'Timber Science', 'Modern Additions', 'Joinery Craft', 'Heritage Consents'];
+  const categories = ['All', 'Discretion & Security', 'Ancient Materials', 'Acoustic Science'];
 
   const filteredArticles = selectedCategory === 'All'
     ? ARTICLES
@@ -22,14 +22,15 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              The Craftsman’s Journal
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
+              <Lock className="w-3.5 h-3.5" />
+              <span>Private Monographs & Technical Treatises</span>
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
-              Essays on Architectural Restoration & Timber Science
+              Architectural Science for Sovereign Estates
             </h2>
-            <p className="text-sm md:text-base text-[#59554E] mt-3">
-              Written from our Morningside workshop bench and on-site across Auckland villas. Technical methodologies, timber diagnostics, and structural solutions.
+            <p className="text-sm md:text-base text-[#59554E] mt-3 leading-relaxed">
+              Discreet technical monographs by Founder Arthur (Todd James) Henderson. Documenting ballistic joinery integration, ancient 45,000-year kauri stabilization, acoustic physics, and bilateral confidentiality covenants.
             </p>
           </div>
 
@@ -59,7 +60,7 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
               onClick={() => onSelectArticle(filteredArticles[0])}
               className="lg:col-span-7 bg-white border border-[#E5E1D8] hover:border-[#B5A898] transition-all cursor-pointer group flex flex-col justify-between"
             >
-              <div className="aspect-[16/10] overflow-hidden bg-[#ECE8E1]">
+              <div className="aspect-[16/10] overflow-hidden bg-[#ECE8E1] relative">
                 <img
                   src={filteredArticles[0].heroImage}
                   alt={filteredArticles[0].title}
@@ -67,9 +68,13 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
                   referrerPolicy="no-referrer"
                   onError={(e) => handleImageError(e, 'craft')}
                 />
+                <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-xs px-2.5 py-1 text-white text-[10px] uppercase font-mono tracking-widest border border-white/20 flex items-center gap-1.5">
+                  <Shield className="w-3 h-3 text-[#B89053]" />
+                  <span>Monograph Archive</span>
+                </div>
               </div>
               <div className="p-8 space-y-4">
-                {/* Zero-Pill Unboxed Metadata */}
+                {/* Metadata */}
                 <div className="flex items-center gap-2 text-xs text-[#706B62]">
                   <span className="text-[#7A5B3E] font-medium">{filteredArticles[0].category}</span>
                   <span aria-hidden="true">·</span>
@@ -87,9 +92,9 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
                 </p>
 
                 <div className="pt-4 border-t border-[#E5E1D8] flex items-center justify-between text-xs">
-                  <span className="text-[#706B62]">By {filteredArticles[0].author.name}</span>
+                  <span className="text-[#706B62]">Author: {filteredArticles[0].author.name}</span>
                   <span className="text-[#1C1B18] font-semibold flex items-center gap-1 group-hover:underline">
-                    Read Essay
+                    Access Monograph
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -124,9 +129,9 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-[#E5E1D8] flex items-center justify-between text-xs">
-                  <span className="text-[#706B62]">By {article.author.name}</span>
+                  <span className="text-[#706B62]">Author: {article.author.name}</span>
                   <span className="text-[#1C1B18] font-semibold flex items-center gap-1 group-hover:underline">
-                    Read Essay
+                    Access Monograph
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -163,9 +168,9 @@ export const JournalSection: React.FC<JournalSectionProps> = ({ onSelectArticle 
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-[#E5E1D8] flex items-center justify-between text-xs">
-                  <span className="text-[#706B62]">By {article.author.name}</span>
+                  <span className="text-[#706B62]">Author: {article.author.name}</span>
                   <span className="text-[#1C1B18] font-semibold flex items-center gap-1 group-hover:underline">
-                    Read Essay
+                    Access Monograph
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>

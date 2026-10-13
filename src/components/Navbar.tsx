@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Lock } from 'lucide-react';
 import { Logo } from './Logo';
 
 interface NavbarProps {
@@ -19,11 +19,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Craftsmanship', href: '#craftsmanship' },
-    { label: 'Philosophy', href: '#philosophy' },
-    { label: 'Journal', href: '#journal' },
-    { label: 'Inquiries', href: '#inquiry' },
+    { label: 'Classified Works', href: '#portfolio' },
+    { label: 'Discretion Protocol', href: '#craftsmanship' },
+    { label: 'Sovereign Pillars', href: '#philosophy' },
+    { label: 'Monographs', href: '#journal' },
+    { label: 'Private Office', href: '#inquiry' },
   ];
 
   return (
@@ -61,9 +61,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
         <div className="flex items-center gap-4">
           <button
             onClick={onOpenInquiry}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors rounded-none border border-[#1C1B18] hover:border-[#7A5B3E] whitespace-nowrap"
+            className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors rounded-none border border-[#1C1B18] hover:border-[#7A5B3E] whitespace-nowrap cursor-pointer shadow-xs"
           >
-            Start an Inquiry
+            <Lock className="w-3 h-3 text-[#B89053]" />
+            <span>Inquire Under NDA</span>
           </button>
 
           {/* Mobile hamburger button */}
@@ -97,9 +98,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                   setMobileMenuOpen(false);
                   onOpenInquiry();
                 }}
-                className="w-full py-3 text-center text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors"
+                className="w-full py-3 text-center text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors flex items-center justify-center gap-2"
               >
-                Start an Inquiry
+                <Lock className="w-3.5 h-3.5 text-[#B89053]" />
+                <span>Inquire Under NDA</span>
               </button>
             </div>
           </nav>

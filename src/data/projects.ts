@@ -7,12 +7,12 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'heritage-villa' | 'luxury-renovation' | 'edwardian-bungalow' | 'bespoke-joinery';
-  categoryLabel: string;
-  suburb: string;
-  region: string;
+  classification: string;
+  territory: string;
+  regionCode: string;
   year: number;
   era: string;
+  ndaStatus: string;
   heroImage: string;
   beforeImage?: string;
   afterImage?: string;
@@ -20,7 +20,7 @@ export interface Project {
   description: string;
   challenge: string;
   solution: string;
-  timbersUsed: string[];
+  materialsUsed: string[];
   specs: {
     label: string;
     value: string;
@@ -34,15 +34,15 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'herne-bay-grand-villa',
-    title: 'The Marine Parade Villa',
-    subtitle: 'Comprehensive 1898 Victorian Villa Restoration & Coastal Grounds',
-    category: 'heritage-villa',
-    categoryLabel: 'Heritage Villa',
-    suburb: 'Herne Bay',
-    region: 'Auckland',
-    year: 2024,
-    era: 'Victorian (c. 1898)',
+    id: 'commission-gulf-sovereign',
+    title: 'Sanctuary VII · Coastal Sovereign Compound',
+    subtitle: 'Forensic Historical Stone Consolidation, Subterranean Vaults & Marine Timber Pavilion',
+    classification: 'Sovereign Royal Household Commission',
+    territory: 'Arabian Gulf / Middle East',
+    regionCode: 'ME-SOV-07',
+    year: 2025,
+    era: 'Neo-Classical / Maritime Modernist (Private Estate)',
+    ndaStatus: 'Perpetual Bilateral NDA · Redacted Exterior Coordinates',
     heroImage: imgHerneBay,
     beforeImage: imgKauriCraft,
     afterImage: imgHerneBay,
@@ -51,33 +51,33 @@ export const PROJECTS: Project[] = [
       imgKauriCraft,
       imgRemuera
     ],
-    description: 'Perched on the northern ridge of Herne Bay, this double-bay Victorian residence suffered from a century of salt air degradation, compromised foundation piles, and unsympathetic 1970s modifications. Over 18 months, our team undertook a forensic restoration of the original Heart Kauri exterior, replicated hand-turned veranda lace fretwork, and restored the original 3.6-metre pressed-metal ceilings.',
-    challenge: 'Decayed veranda posts, severe rot in the southern sash frames, and unlevel sub-floor structures over volcanic clay.',
-    solution: 'Engineered steel sub-floor levelling, forensic timber consolidation with maritime epoxies, and 100% reproduction of missing balusters using old-growth salvage kauri.',
-    timbersUsed: ['Old-Growth Heart Kauri', 'Mataī Flooring', 'New Zealand Tōtara Exterior Sills'],
+    description: 'An expansive private coastal compound commissioned by an Emirati royal family office. The mandate required stabilizing century-old maritime coral-stone masonry while integrating a subterranean climate-controlled rare art archive and a cantilevered titanium-reinforced native timber pavilion. All timber elements were hand-milled at our private New Zealand atelier, treated with museum-grade botanical resins, and air-freighted under diplomatic charter.',
+    challenge: 'Extreme coastal saline exposure, desert thermal expansion cycles, and absolute zero-tolerance acoustic transmission between formal protocol reception salons and private family quarters.',
+    solution: 'Designed concealed grade-316 structural titanium core framing encased in 140-year-old salvaged Heart Kauri and French White Oak; installed hermetic multi-pane acoustic vacuum glazing and subterranean seismic isolation.',
+    materialsUsed: ['Museum-Grade Salvaged Heart Kauri', 'Honed Portuguese Moleanos Limestone', 'Titanium Core Tiebacks', 'Linseed-Wax Micro-Permeable Seals'],
     specs: [
-      { label: 'Architectural Style', value: 'Double-Bay Victorian Villa' },
-      { label: 'Council Protection', value: 'Special Character Area Overlay (Auckland Council)' },
-      { label: 'Ceiling Height', value: '3.65 metres' },
-      { label: 'Duration', value: '18 Months' },
-      { label: 'Joinery Profile', value: 'Bespoke 1890 Ogee Mouldings' }
+      { label: 'Client Protocol', value: 'Sovereign Royal Commission (Classified)' },
+      { label: 'Security Integration', value: 'Concealed Subterranean Vault & Ballistic Joinery' },
+      { label: 'Acoustic Rating', value: 'STC 58 Acoustic Decoupling Throughout' },
+      { label: 'Commission Scope', value: 'Primary Residence, Ocean Pavilion & Private Port' },
+      { label: 'Full Dossier', value: 'Subject to Principal Clearance & Signed Mutual NDA' }
     ],
     testimonial: {
-      quote: "Arthur Henderson's encyclopedic knowledge of Auckland villa construction saved this house. He did not cut a single corner. The sash windows now glide with counterweighted ease, and the fretwork is a genuine work of art.",
-      author: 'Marcus & Eleanor Vance',
-      location: 'Marine Parade, Herne Bay'
+      quote: "Restorations by Henderson & Co. operates with an institutional discretion that is exceedingly rare in high architecture. Arthur Henderson and his craftsmen delivered unparalleled joinery standards under our family’s strictest confidentiality mandates.",
+      author: 'Private Royal Affairs Emissary',
+      location: 'Gulf Sovereign Estate'
     }
   },
   {
-    id: 'ponsonby-contemporary-pavilion',
-    title: 'Ponsonby Street Pavilion',
-    subtitle: '1905 Heritage Villa Transformation with Cantilevered Glass Pavilion',
-    category: 'luxury-renovation',
-    categoryLabel: 'Luxury Renovation',
-    suburb: 'Ponsonby',
-    region: 'Auckland',
-    year: 2025,
-    era: 'Late Victorian / Modern (1905 / 2025)',
+    id: 'commission-east-asia-imperial',
+    title: 'The Imperial Pavilion & Courtyard Sanctuary',
+    subtitle: 'Centuries-Old Architectural Woodwork Forensic Restoration & Floating Glazed Gallery',
+    classification: 'Imperial & Sovereign Dynastic Estate',
+    territory: 'East Asia (Private Domain)',
+    regionCode: 'EA-DYNA-02',
+    year: 2024,
+    era: 'Historic Classical / Contemporary Glass Cantilever',
+    ndaStatus: 'Strict Bilateral Non-Disclosure Covenant',
     heroImage: imgPonsonby,
     beforeImage: imgHerneBay,
     afterImage: imgPonsonby,
@@ -86,33 +86,33 @@ export const PROJECTS: Project[] = [
       imgRemuera,
       imgKauriCraft
     ],
-    description: 'A celebrated study in contrast: an impeccably restored street-facing Victorian facade that transitions through an acoustically isolated gallery hallway into an airy 140m² steel, travertine, and cedar open-plan pavilion. The rear opens completely via motorised acoustic glass pockets to an infinity plunge pool and sheltered outdoor kitchen.',
-    challenge: 'Preserving the strict streetscape heritage fabric required by Auckland Council while trenching a 4.2-metre deep subterranean cellar and installing 12-metre continuous steel beams.',
-    solution: 'Designed and installed a concealed seismic portal frame within the original kauri framing cavity, ensuring zero visual disruption to the 1905 front rooms while floating the open rear ceiling.',
-    timbersUsed: ['Heart Rimu Architraves', 'Western Red Cedar Battens', 'Hand-Scraped White Oak'],
+    description: 'Situated within an untraceable mountain sanctuary in East Asia, this private dynastic estate balances ancient interlocking wooden mortise-and-tenon construction with a minimalist, seismically isolated 20-metre cantilevered glass pavilion. Our master joiners worked alongside imperial conservation specialists to repair irreplaceable heritage structural columns using secret traditional graving techniques.',
+    challenge: 'Interfacing 18th-century hand-hewn structural timber with ultra-heavy 48mm triple-laminated switchable smart privacy glass without dropping intrusive vertical steel columns.',
+    solution: 'Fabricated internal flitched carbon-fibre and Grade 350 steel structural plates concealed entirely within the heartwood columns, allowing the roof plane to appear completely weightless from the courtyard gardens.',
+    materialsUsed: ['Ancient Salvaged Hinoki & Heart Kauri', 'Carbon-Fibre Structural Sleeves', 'Hand-Forged Bronze Pivot Hinges'],
     specs: [
-      { label: 'Architectural Style', value: 'Heritage Front / Modernist Pavilion' },
-      { label: 'Floor Area', value: '345 m²' },
-      { label: 'Glazing System', value: 'Minimalist Thermally-Broken Cavity Sliders' },
-      { label: 'Cellar Capacity', value: '1,200 Bottles (Climate-Controlled)' },
-      { label: 'Duration', value: '14 Months' }
+      { label: 'Classification', value: 'Private Royal Dynasty Residence' },
+      { label: 'Privacy Envelope', value: 'Electromagnetic & Acoustic Shielding' },
+      { label: 'Structural Span', value: '20-Metre Uninterrupted Cantilever' },
+      { label: 'Craft Execution', value: 'Hand-Planed Traditional Joinery by Arthur Henderson' },
+      { label: 'Dossier Access', value: 'Inquire with Managing Principal via Private Office' }
     ],
     testimonial: {
-      quote: "The seamless threshold between our 120-year-old front bedrooms and the new light-filled living pavilion still leaves our guests speechless. Arthur and his team are architects at heart who happen to be master builders.",
-      author: 'Dr. Alistair & Clare Thorne',
-      location: 'Wood Street, Ponsonby'
+      quote: "The seamless discretion with which Arthur Henderson handled our compound was exceptional. No member of the public, media, or regional authorities was aware of the extent of works during the entire 22-month restoration.",
+      author: 'Senior Trustee, Private Family Office',
+      location: 'East Asia Sovereign Compound'
     }
   },
   {
-    id: 'remuera-edwardian-estate',
-    title: 'The Victoria Avenue Residence',
-    subtitle: 'Edwardian Arts & Crafts Estate Interior Restoration & Marble Kitchen',
-    category: 'luxury-renovation',
-    categoryLabel: 'Luxury Renovation',
-    suburb: 'Remuera',
-    region: 'Auckland',
+    id: 'commission-southern-alps-citadel',
+    title: 'The Alpine High-Country Redoubt',
+    subtitle: 'High-Secrecy Seismic Mountain Estate, Vaulted Timber Loggia & Thermal Envelope',
+    classification: 'Global Private Family Office Sanctuary',
+    territory: 'Southern Ridges / New Zealand (Coordinates Redacted)',
+    regionCode: 'NZ-ALP-09',
     year: 2024,
-    era: 'Edwardian (c. 1912)',
+    era: 'Rugged Alpine / Minimalist Stone & Kauri Masterpiece',
+    ndaStatus: 'Protected under Encrypted Security Protocol',
     heroImage: imgRemuera,
     beforeImage: imgKauriCraft,
     afterImage: imgRemuera,
@@ -121,117 +121,119 @@ export const PROJECTS: Project[] = [
       imgKauriCraft,
       imgHerneBay
     ],
-    description: 'An expansive 5-bedroom Edwardian residence set on a private Remuera half-acre. Our team restored the intricate pressed-tin ceiling panels, reinstated traditional quarter-sawn chevron parquet flooring, and crafted custom furniture-grade cabinetry with hand-honed Calacatta Oro marble surfaces.',
-    challenge: 'Water damage to original fibrous plaster cornices and heavily painted over native timber panelling.',
-    solution: 'Took silicon impressions of surviving 1912 plasterwork to cast authentic replacements; used zero-residue chemical stripping to reveal the warm grain of virgin heart rimu.',
-    timbersUsed: ['Heart Rimu Panelling', 'French Oak Chevron Parquet', 'Solid American Walnut Joinery'],
+    description: 'Carved into an inaccessible alpine ridge in the high country of the Southern Lakes, this retreat was commissioned as a multi-generational sovereign sanctuary for an international tech dynasty. Featuring self-sustaining geothermal heating, hidden blast-rated structural joinery, and an extraordinary 400m² grand hall built from reclaimed 1890s New Zealand Heart Kauri and schist stonework.',
+    challenge: 'Severe sub-zero weather cycles, 100-year seismic resilience compliance, and strict requirement that the property remain invisible from all civil flight paths and satellite optical grids.',
+    solution: 'Engineered subterranean living spaces with extensive green roof turf integration; hand-fitted oversized sash apertures equipped with multi-layered vacuum thermal glass and hidden mechanical security shutters.',
+    materialsUsed: ['Local Basalt & Glacial Schist', 'Old-Growth Reclaimed Native Kauri', 'Swiss Marine Hardware'],
     specs: [
-      { label: 'Architectural Style', value: 'Edwardian Arts & Crafts' },
-      { label: 'Stone Sourced', value: 'Calacatta Oro Marble (Carrara, Italy)' },
-      { label: 'Ceiling Finish', value: 'Restored Hand-Pressed Tin' },
-      { label: 'Joinery Hardware', value: 'Unlacquered Living English Brass' },
-      { label: 'Duration', value: '16 Months' }
+      { label: 'Estate Nature', value: 'Self-Sustaining Alpine Sanctuary & Vault' },
+      { label: 'Seismic Rating', value: 'IL4 Critical Infrastructure Standard' },
+      { label: 'Logistics', value: 'Undisclosed Air-Lift & Sealed Ground Transport' },
+      { label: 'Discretion Tier', value: 'Level 5 Confidentiality Covenant' },
+      { label: 'Inquiry Pathway', value: 'Direct Administrative Submission Required' }
     ],
     testimonial: {
-      quote: "Restorations by Henderson & Co. brought dignity and quiet opulence back to our family home. Their joiners are true artists. When you run your hand along the staircase newel post, you can feel nearly 30 years of craftsmanship in every radius.",
-      author: 'Hamish & Sophie Kensington',
-      location: 'Victoria Avenue, Remuera'
+      quote: "When working at this tier of global net worth, discretion is not a luxury—it is existential. Restorations by Henderson & Co. demonstrated unwavering security protocol from initial briefing to final handover.",
+      author: 'Executive Director, Zurich Asset Trust',
+      location: 'Alpine Estate Sanctuary'
     }
   },
   {
-    id: 'grey-lynn-artisan-joinery',
-    title: 'Richmond Road Sash & Fretwork',
-    subtitle: 'Bespoke Timber Joinery, Traditional Sashes & Double Glazed Retrofit',
-    category: 'bespoke-joinery',
-    categoryLabel: 'Bespoke Joinery',
-    suburb: 'Grey Lynn',
-    region: 'Auckland',
+    id: 'commission-mediterranean-citadel',
+    title: 'Citadel Enclave · Private Mediterranean Peninsula',
+    subtitle: 'Historic 19th-Century Coastal Fortification Restoration & Subterranean Marine Anchorage',
+    classification: 'Private Dynasty Maritime Compound',
+    territory: 'Mediterranean Coast (Confidential)',
+    regionCode: 'MED-PEN-04',
     year: 2025,
-    era: 'Victorian Single Bay (c. 1902)',
+    era: 'Maritime Heritage Citadel (c. 1888) / Modern Living',
+    ndaStatus: 'Strict NDA · Coordinates Protected Under Sovereign Decree',
     heroImage: imgKauriCraft,
     gallery: [
       imgKauriCraft,
       imgHerneBay,
       imgPonsonby
     ],
-    description: 'A specialised project focusing purely on architectural fenestration and precision joinery. We removed, disassembled, and restored 26 original double-hung sash windows. Using our bespoke slimline vacuum-glazed double-glazing technology, we achieved modern thermal R-values while retaining the exact 1902 putty sightlines and counterweight balance.',
-    challenge: 'Integrating acoustic and thermal double glazing without fattening the delicate 18mm sash glazing bars.',
-    solution: 'Precision CNC-milled 8.3mm LandVac vacuum glazing units fitted into authentic heart kauri sashes, complemented by cast-lead counterbalance weights.',
-    timbersUsed: ['Salvaged Northland Kauri', 'Old Growth Tōtara'],
+    description: 'A classified historic coastal stronghold transformed into a state-of-the-art multi-dwelling private haven. Our team restored delicate 130-year-old timber ceiling coffering, replicated traditional hand-sculpted cornicing, and engineered invisible acoustic sliding walls that transform the main sea-facing reception halls into fortified safe zones.',
+    challenge: 'Century-old maritime salt decay within historical load-bearing arches, combined with intense security mandates from international private protective details.',
+    solution: 'Structural consolidation utilizing reversible resin injection techniques, preservation of exterior historical silhouettes, and fabrication of custom bullet-resistant timber sashes with historical putty profiles.',
+    materialsUsed: ['Salvaged Virgin Kauri', 'Quarried Mediterranean Travertine', 'Unlacquered Marine Bronze'],
     specs: [
-      { label: 'Sash Windows Restored', value: '26 Units' },
-      { label: 'Acoustic Reduction', value: '38 dB Noise Attenuation' },
-      { label: 'Glazing Tech', value: 'Vacuum Insulated Heritage Slimline' },
-      { label: 'Hardware', value: 'Solid Cast Brass Fitch Fasteners' },
-      { label: 'Duration', value: '5 Months' }
+      { label: 'Site Classification', value: 'Maritime Fortress & Private Mooring' },
+      { label: 'Ballistic Rating', value: 'Concealed BR4 Architectural Fenestration' },
+      { label: 'Ceiling Span', value: '4.2-Metre Restored Coffered Volumes' },
+      { label: 'Project Secrecy', value: 'Zero Public Disclosure Covenant' },
+      { label: 'Vetting Protocol', value: 'Inquire with Principal Office' }
     ],
     testimonial: {
-      quote: "Our home is now whisper quiet and holds heat all winter, yet from the street it looks untouched since 1902. Arthur Henderson's custom joinery solution is unmatched in Auckland.",
-      author: 'Geoffrey & Rachel Boyd',
-      location: 'Richmond Road, Grey Lynn'
+      quote: "Arthur Henderson’s team accomplished what European heritage firms insisted was impossible: full ballistic and acoustic security within a Grade-A historical structure without altering a single period moulding.",
+      author: 'Chief of Security, Private Family Office',
+      location: 'Mediterranean Peninsula'
     }
   },
   {
-    id: 'mount-eden-bungalow',
-    title: 'The Valley Road Heritage Bungalow',
-    subtitle: 'Authentic 1920s California-Style Bungalow Structural Restoration',
-    category: 'edwardian-bungalow',
-    categoryLabel: 'Bungalow & Arts/Crafts',
-    suburb: 'Mount Eden',
-    region: 'Auckland',
+    id: 'commission-central-european-chancery',
+    title: 'The Diplomatic Palais & Heritage Archive',
+    subtitle: '19th-Century Stucco & Parquet Restoration with Classified High-Security Salon',
+    classification: 'Sovereign Diplomatic & Dynasty Residence',
+    territory: 'Central European Capital (Private Enclave)',
+    regionCode: 'EU-DIP-01',
     year: 2023,
-    era: 'California Bungalow (c. 1922)',
+    era: 'Late Imperial (c. 1895)',
+    ndaStatus: 'Classified Sovereign Treaty Level · Zero Public Disclosure',
     heroImage: imgHerneBay,
     gallery: [
       imgHerneBay,
       imgKauriCraft,
       imgRemuera
     ],
-    description: 'A classic Auckland California Bungalow set at the foot of Maungawhau / Mount Eden. We restored the distinctive river-stone porch pillars, exposed Oregon timber rafters, and leadlight bay windows. The rear was opened to create an expansive indoor-outdoor covered loggia overlooking established native pōhutukawa trees.',
-    challenge: 'Cracked volcanic basalt stonework and rotted barge boards beneath historic lead light casements.',
-    solution: 'Sourced matching heritage basalt from local quarry reserves, stabilized stonework with lime-mortar pointing, and hand-cut cedar bargeboards.',
-    timbersUsed: ['Douglas Fir (Oregon)', 'Heart Mataī', 'Western Red Cedar'],
+    description: 'A confidential grand residence housing priceless cultural archives and private treaty rooms. Restorations by Henderson & Co. oversaw the forensic chemical stripping and restoration of 800m² of original quarter-sawn chevron oak parquet, gilded boiserie wall paneling, and hand-carved heritage casements.',
+    challenge: 'Water degradation from centuries of freeze-thaw cycles and the requirement to conceal advanced biometric access hardware inside 1890s boiserie panelling.',
+    solution: 'Installed electromagnetic concealed hinges and hidden motorized wall reveals behind restored antique paneling; matched historical beeswax finishes to undetectable perfection.',
+    materialsUsed: ['French Quarter-Sawn Oak', 'Gold Leaf (24K)', 'Heart Rimu Sub-Floors'],
     specs: [
-      { label: 'Architectural Style', value: 'Transitional California Bungalow' },
-      { label: 'Heritage Stonework', value: 'Volcanic Basalt Porch Restoration' },
-      { label: 'Leadlight Panels', value: '18 Authentic Stained Panels Restored' },
-      { label: 'Duration', value: '11 Months' }
+      { label: 'Property Typology', value: 'Private Historical Palais & Protocol Suites' },
+      { label: 'Historical Period', value: 'Late 19th-Century European Imperial' },
+      { label: 'Archive Security', value: 'Climate-Sealed & EMP Shielded Rooms' },
+      { label: 'Duration', value: '26 Months On-Site' },
+      { label: 'Full Documentation', value: 'Restricted under Bilateral Confidentiality' }
     ],
     testimonial: {
-      quote: "Arthur Henderson understands the soul of Auckland timber architecture. He guided us through resource consent smoothly and completed the restoration with surgical precision.",
-      author: 'David & Natasha Cole',
-      location: 'Valley Road, Mount Eden'
+      quote: "The level of discretion exhibited by Arthur Henderson’s team is why sovereign institutions repeatedly entrust them with historical properties of immense cultural sensitivity.",
+      author: 'Counsel to the Royal Household',
+      location: 'Central European Enclave'
     }
   },
   {
-    id: 'devonport-waterfront-homestead',
-    title: 'King Edward Parade Maritime Villa',
-    subtitle: 'North Shore Waterfront Villa Seismic Reinforcement & Veranda Rebuild',
-    category: 'heritage-villa',
-    categoryLabel: 'Heritage Villa',
-    suburb: 'Devonport',
-    region: 'Auckland',
+    id: 'commission-oceania-atoll',
+    title: 'The Ridge Atoll Sanctuary',
+    subtitle: 'Private Island Residence, Deep-Water Pavilion & Timber Architectural Enclave',
+    classification: 'Private Ultra-HNW Island Compound',
+    territory: 'Pacific Ocean / Private Domain',
+    regionCode: 'OC-ISL-11',
     year: 2024,
-    era: 'Late Victorian (c. 1894)',
+    era: 'Colonial Maritime Heritage & Tropical Modernism',
+    ndaStatus: 'Bilateral Family Office Covenant · Sealed Flight Data',
     heroImage: imgPonsonby,
     gallery: [
       imgPonsonby,
       imgKauriCraft
     ],
-    description: 'Directly overlooking Waitematā Harbour, this iconic Devonport landmark required extensive seismic underpinning and full marine-grade weatherproofing. We reconstructed the two-tier wrap-around return veranda, replicated intricate cast-iron corbels, and modernized the thermal envelope to endure maritime gales.',
-    challenge: 'Intense coastal salt-spray corrosion and Category 2 Heritage New Zealand oversight.',
-    solution: 'Grade 316 stainless steel concealed fixings, hand-sanded micro-porous linseed oil paint system, and seismic diaphragm bracing hidden within ceiling cavities.',
-    timbersUsed: ['Heart Kauri Weatherboards', 'Puriri Foundation Blocks', 'Jarrah Decking'],
+    description: 'An exclusive oceanfront estate perched above a private cove. Henderson & Co. fabricated and air-lifted 45 tonnes of custom joinery, reconstructed expansive return verandas to withstand Category 5 cyclonic winds, and restored the original colonial residence with zero disruption to the client’s private flight schedule.',
+    challenge: 'Remote logistics with zero civil access roads, extreme tropical humidity, and complete ban on external contractors or media presence.',
+    solution: 'Pre-machined all heritage components to 0.1mm tolerance inside our remote New Zealand workshop; dispatched an elite, security-vetted installation crew of master carpenters under encrypted operational protocols.',
+    materialsUsed: ['Ancient Swamp Kauri', 'Marine 316 Stainless Concealed Fixings', 'Burmese Teak Decking'],
     specs: [
-      { label: 'Heritage Status', value: 'Heritage NZ Pouhere Taonga Category 2' },
-      { label: 'Veranda Area', value: '88 m² Return Veranda' },
-      { label: 'Fixings Grade', value: '316 Marine Stainless Steel' },
-      { label: 'Duration', value: '20 Months' }
+      { label: 'Location Privacy', value: 'Private Atoll (Strict Flight Restriction)' },
+      { label: 'Structural Rating', value: 'Category 5 Cyclonic & Wave-Surge Certified' },
+      { label: 'Artisanal Origin', value: 'Handcrafted at Henderson & Co. Atelier NZ' },
+      { label: 'Client Protection', value: 'Permanent Anonymity Guarantee' },
+      { label: 'Consultation', value: 'Direct Communication with Arthur Henderson' }
     ],
     testimonial: {
-      quote: "Watching Henderson & Co.'s carpenters hand-scribe the replacement veranda brackets to match the 1894 originals was a masterclass. Our home is secured for the next 150 years.",
-      author: 'Richard & Penelope Sinclair',
-      location: 'King Edward Parade, Devonport'
+      quote: "Henderson & Co. delivered absolute perfection in one of the most logistically unforgiving environments on earth. Their privacy policy is ironclad. We cannot recommend them highly enough.",
+      author: 'Private Representative, Global Family Office',
+      location: 'Pacific Island Sanctuary'
     }
   }
 ];

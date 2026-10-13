@@ -86,7 +86,7 @@ export const Logo: React.FC<LogoProps> = ({
             Restorations by Henderson & Co.
           </span>
           <span className={`text-[10px] uppercase tracking-widest font-sans font-medium ${subColor}`}>
-            Architectural Heritage & Luxury Renovations · Auckland
+            Sovereign Heritage Architecture & Private Estates · Est. 1997
           </span>
         </div>
       </div>
