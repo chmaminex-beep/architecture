@@ -1,51 +1,39 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowUpRight, Search, Lock, ShieldCheck, FileKey } from 'lucide-react';
+import { ArrowUpRight, Search, Lock, ShieldCheck } from 'lucide-react';
 import { PROJECTS, Project } from '../data/projects';
 import { handleImageError } from '../utils/imageFallback';
 
 interface PortfolioProps {
   onSelectProject: (project: Project) => void;
+  onOpenInquiry: (projectTitle?: string) => void;
 }
 
-type FilterCategory = 'all' | 'sovereign' | 'estates' | 'maritime' | 'joinery';
+type RegionFilter = 'all' | 'Middle East & Arabian Gulf' | 'East Asia & Royal Domains' | 'Continental Europe' | 'Pacific & Alpine New Zealand';
 
-export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
-  const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
+export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onOpenInquiry }) => {
+  const [activeFilter, setActiveFilter] = useState<RegionFilter>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filterTabs = [
-    { id: 'all', label: 'All Classified Commissions' },
-    { id: 'sovereign', label: 'Royal & Sovereign Compounds' },
-    { id: 'estates', label: 'Dynastic Sanctuaries' },
-    { id: 'maritime', label: 'Maritime Fortresses' },
-    { id: 'joinery', label: 'Rare Ancient Timber' },
+    { id: 'all', label: 'All Commissions' },
+    { id: 'Middle East & Arabian Gulf', label: 'Middle East & Gulf' },
+    { id: 'East Asia & Royal Domains', label: 'East Asia' },
+    { id: 'Continental Europe', label: 'Continental Europe' },
+    { id: 'Pacific & Alpine New Zealand', label: 'Pacific & New Zealand' },
   ];
 
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter((project) => {
-      // Category match
-      let matchesCategory = true;
-      if (activeFilter === 'sovereign') {
-        matchesCategory = project.classification.toLowerCase().includes('sovereign') || project.classification.toLowerCase().includes('royal');
-      } else if (activeFilter === 'estates') {
-        matchesCategory = project.classification.toLowerCase().includes('estate') || project.classification.toLowerCase().includes('family office');
-      } else if (activeFilter === 'maritime') {
-        matchesCategory = project.title.toLowerCase().includes('maritime') || project.title.toLowerCase().includes('coastal') || project.title.toLowerCase().includes('citadel') || project.title.toLowerCase().includes('atoll');
-      } else if (activeFilter === 'joinery') {
-        matchesCategory = project.materialsUsed.some(m => m.toLowerCase().includes('kauri') || m.toLowerCase().includes('joinery'));
-      }
-
-      // Search match
+      const matchesRegion = activeFilter === 'all' || project.region === activeFilter;
       const query = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !query ||
         project.title.toLowerCase().includes(query) ||
-        project.territory.toLowerCase().includes(query) ||
-        project.classification.toLowerCase().includes(query) ||
-        project.regionCode.toLowerCase().includes(query) ||
-        project.materialsUsed.some((m) => m.toLowerCase().includes(query));
+        project.territoryTag.toLowerCase().includes(query) ||
+        project.scope.toLowerCase().includes(query) ||
+        project.materials.some((m) => m.toLowerCase().includes(query));
 
-      return matchesCategory && matchesSearch;
+      return matchesRegion && matchesSearch;
     });
   }, [activeFilter, searchQuery]);
 
@@ -53,53 +41,39 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
     <section id="portfolio" className="py-20 md:py-28 bg-[#FAF9F6] border-b border-[#E5E1D8]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#E5E1D8]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Restricted Portfolio · Redacted Visual Monographs · 1997–2026</span>
+            <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2 flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-[#7A5B3E]" />
+              <span>Selected Works Archive · 1997–2026 · Governed by Bilateral NDAs</span>
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
-              Classified Commissions & Sovereign Domains
+              Private Residences & Architectural Restorations
             </h2>
             <p className="text-sm md:text-base text-[#59554E] mt-3 leading-relaxed">
-              In accordance with our strict non-disclosure policy, all client identities, precise geographic coordinates, and identifying exterior elevations are permanently redacted. The monographs below present anonymized structural excerpts, security assemblies, and material studies.
+              Out of strict respect for our patrons, personal family identities, municipal addresses, and verifiable coordinates are withheld as a company policy. The photographic records below present material studies, joinery profiles, and conservation solutions documented with the consent of our clients.
             </p>
           </div>
 
-          {/* Search by Territory / Material */}
+          {/* Search Input */}
           <div className="relative min-w-[280px]">
             <Search className="w-4 h-4 text-[#706B62] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter territory, code, or material..."
-              className="w-full pl-10 pr-4 py-2 text-xs bg-white border border-[#DCD6CA] focus:outline-none focus:border-[#7A5B3E] transition-colors"
+              placeholder="Search region, timber, or scope..."
+              className="w-full pl-10 pr-4 py-2.5 text-xs bg-white border border-[#DCD6CA] focus:outline-none focus:border-[#7A5B3E] transition-colors"
             />
           </div>
         </div>
 
-        {/* NDA Protocol Notice Box */}
-        <div className="mb-10 p-4 bg-[#F3F0EB] border border-[#DCD6CA] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#59554E]">
-          <div className="flex items-center gap-3">
-            <ShieldCheck className="w-4 h-4 text-[#7A5B3E] shrink-0" />
-            <span>
-              <strong>Protocol Notice:</strong> Full unredacted architectural drawings, high-resolution photographic dossiers, and timber provenance certificates are released exclusively under bilateral non-disclosure agreements following principal vetting.
-            </span>
-          </div>
-          <span className="text-[#7A5B3E] font-medium shrink-0 flex items-center gap-1.5">
-            <FileKey className="w-3.5 h-3.5" />
-            <span>Encrypted Archival Standard</span>
-          </span>
-        </div>
-
-        {/* Filter Tabs */}
+        {/* Filter Controls (Segmented Clean Typography) */}
         <div className="flex items-center gap-1 overflow-x-auto pb-4 mb-10 border-b border-[#E5E1D8]/60 text-xs">
           {filterTabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveFilter(tab.id as FilterCategory)}
+              onClick={() => setActiveFilter(tab.id as RegionFilter)}
               className={`px-4 py-2 font-medium tracking-wide transition-all cursor-pointer whitespace-nowrap border-b-2 ${
                 activeFilter === tab.id
                   ? 'border-[#7A5B3E] text-[#1C1B18] bg-[#F3F0EB]'
@@ -110,23 +84,23 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
             </button>
           ))}
           <div className="ml-auto text-xs text-[#706B62] hidden sm:block">
-            Displaying {filteredProjects.length} classified records
+            {filteredProjects.length} {filteredProjects.length === 1 ? 'commission' : 'commissions'} catalogued
           </div>
         </div>
 
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
-          <div className="py-20 text-center text-[#706B62]">
-            <p className="font-serif text-2xl text-[#1C1B18] mb-2">No classified records matched your search query.</p>
-            <p className="text-xs">Try clearing query terms or search by "Gulf", "Sovereign", "Kauri", or "Alps".</p>
+          <div className="py-20 text-center text-[#706B62] bg-white border border-[#E5E1D8] p-8">
+            <p className="font-serif text-2xl text-[#1C1B18] mb-2">No projects match your search criteria.</p>
+            <p className="text-xs">Try selecting a different region or clearing the search bar.</p>
             <button
               onClick={() => {
                 setActiveFilter('all');
                 setSearchQuery('');
               }}
-              className="mt-4 px-4 py-2 text-xs text-[#7A5B3E] underline hover:text-[#1C1B18]"
+              className="mt-4 px-4 py-2 text-xs text-[#7A5B3E] underline hover:text-[#1C1B18] cursor-pointer"
             >
-              Reset all parameters
+              Reset filters
             </button>
           </div>
         ) : (
@@ -141,7 +115,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                     isLargeCard ? 'lg:col-span-2' : 'lg:col-span-1'
                   }`}
                 >
-                  {/* Image Container */}
+                  {/* Image View */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#ECE8E1]">
                     <img
                       src={project.heroImage}
@@ -150,25 +124,24 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                       referrerPolicy="no-referrer"
                       onError={(e) => handleImageError(e, 'villa')}
                     />
-                    {/* Classified Stamp Overlay */}
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-xs px-2.5 py-1 text-white text-[10px] uppercase tracking-widest font-mono border border-white/20 flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-[#B89053]" />
-                      <span>{project.regionCode}</span>
-                    </div>
-
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-xs p-2 text-[#1C1B18] opacity-0 group-hover:opacity-100 transition-opacity">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
+                    {/* Subtle Discretion Badge on Image */}
+                    <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-xs px-2.5 py-1 text-white text-[10px] tracking-wider uppercase flex items-center gap-1.5 border border-white/10">
+                      <ShieldCheck className="w-3 h-3 text-[#E5D7C7]" />
+                      <span>{project.territoryTag}</span>
+                    </div>
                   </div>
 
-                  {/* Card Content */}
+                  {/* Card Content (Zero-Pill Discipline) */}
                   <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
                     <div>
-                      {/* Discrete Metadata */}
+                      {/* Quiet Unboxed Metadata */}
                       <div className="flex items-center gap-2 text-xs text-[#706B62] mb-2 flex-wrap">
-                        <span className="text-[#7A5B3E] font-medium">{project.classification}</span>
+                        <span className="text-[#7A5B3E] font-medium">{project.region}</span>
                         <span aria-hidden="true">·</span>
-                        <span>{project.territory}</span>
+                        <span>{project.scope}</span>
                         <span aria-hidden="true">·</span>
                         <span className="tabular-nums font-mono text-[11px]">{project.year}</span>
                       </div>
@@ -182,13 +155,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                       </p>
                     </div>
 
-                    {/* Bottom Specs & NDA Badge */}
+                    {/* Bottom Metadata & Link */}
                     <div className="pt-4 border-t border-[#E5E1D8] flex items-center justify-between text-xs text-[#706B62]">
-                      <span className="flex items-center gap-1 text-[#7A5B3E] text-[11px] font-medium">
-                        <Lock className="w-3 h-3" />
-                        <span>{project.ndaStatus.split('·')[0]}</span>
+                      <span className="text-[11px] text-[#7A5B3E] truncate max-w-[200px]">
+                        {project.materials[0]}
                       </span>
-                      <span className="text-[11px] underline group-hover:text-[#1C1B18]">
+                      <span className="text-[11px] font-medium text-[#1C1B18] group-hover:underline flex items-center gap-1 shrink-0">
                         Review Monograph →
                       </span>
                     </div>
@@ -198,6 +170,19 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
             })}
           </div>
         )}
+
+        {/* Quiet Footnote about Full Dossier Inquiries */}
+        <div className="mt-12 p-6 bg-[#F4F3EF] border border-[#E5E1D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+          <div className="text-[#59554E] max-w-2xl leading-relaxed">
+            <strong className="text-[#1C1B18]">Notice to Family Offices, Private Secretaries & Counsel:</strong> Detailed joinery sections, structural calculations, and complete site folios are held in our private archives. They may be examined in person at our New Zealand workshop or reviewed via encrypted digital dispatch upon execution of a mutual non-disclosure agreement.
+          </div>
+          <button
+            onClick={() => onOpenInquiry()}
+            className="px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors shrink-0 whitespace-nowrap cursor-pointer"
+          >
+            Request Private Dossier
+          </button>
+        </div>
       </div>
     </section>
   );

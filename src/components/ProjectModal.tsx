@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Lock, ShieldCheck, Quote, FileKey, AlertCircle } from 'lucide-react';
+import { X, Quote, Lock, ShieldCheck } from 'lucide-react';
 import { Project } from '../data/projects';
 import { handleImageError } from '../utils/imageFallback';
 
@@ -22,28 +22,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xs animate-fade-in"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div className="bg-[#FAF9F6] border border-[#DCD6CA] w-full max-w-5xl max-h-[92vh] overflow-hidden shadow-2xl relative flex flex-col">
-        {/* Modal Top Security Classification Bar */}
+        {/* Top Header Bar */}
         <div className="px-6 py-4 bg-[#1C1B18] text-white flex items-center justify-between border-b border-[#302D27]">
-          <div className="flex items-center gap-3 text-xs tracking-wider font-mono">
-            <span className="text-[#B89053] font-semibold flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5" />
-              <span>CLASSIFIED COMMISSION</span>
+          <div className="flex items-center gap-3 text-xs tracking-wider">
+            <span className="text-[#E5D7C7] font-medium flex items-center gap-1.5">
+              <Lock className="w-3.5 h-3.5 text-[#B89053]" />
+              <span>{project.territoryTag}</span>
             </span>
-            <span className="text-white/40">/</span>
-            <span className="text-[#A8A398]">{project.regionCode}</span>
-            <span className="text-white/40">/</span>
-            <span className="text-white/70">{project.territory}</span>
+            <span className="text-white/40">·</span>
+            <span className="text-white/70">{project.scope}</span>
+            <span className="text-white/40">·</span>
+            <span className="text-white/60 tabular-nums">{project.year}</span>
           </div>
           <button
             onClick={onClose}
             className="p-1.5 text-white/70 hover:text-white transition-colors cursor-pointer rounded-full hover:bg-white/10"
-            aria-label="Close dossier"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -53,9 +53,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         <div className="max-h-[85vh] overflow-y-auto p-6 md:p-10 space-y-10">
           {/* Title Area */}
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#7A5B3E] mb-2">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>{project.ndaStatus}</span>
+            <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-1">
+              Private Commission Archive · {project.region}
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
               {project.title}
@@ -65,18 +64,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </p>
           </div>
 
-          {/* Visual Monograph View */}
+          {/* Photographic View */}
           <div className="space-y-4">
             <div className="relative aspect-[16/9] w-full bg-[#1C1B18] overflow-hidden border border-[#DCD6CA]">
               <img
                 src={project.gallery[activeImageIndex] || project.heroImage}
-                alt={`${project.title} monograph excerpt ${activeImageIndex + 1}`}
+                alt={`${project.title} photographic study ${activeImageIndex + 1}`}
                 className="w-full h-full object-cover transition-all duration-300"
                 referrerPolicy="no-referrer"
                 onError={(e) => handleImageError(e, 'villa')}
               />
-              <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-xs px-3 py-1.5 text-white text-[11px] font-mono border border-white/20">
-                Redacted Photographic Excerpt · Plate {activeImageIndex + 1} of {project.gallery.length}
+              <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-xs px-3 py-1.5 text-white text-[11px] border border-white/10 flex items-center gap-2">
+                <span>Plate {activeImageIndex + 1} of {project.gallery.length}</span>
+                <span>·</span>
+                <span>{project.territoryTag}</span>
               </div>
             </div>
 
@@ -93,7 +94,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   >
                     <img
                       src={img}
-                      alt={`Monograph thumbnail ${idx + 1}`}
+                      alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                       onError={(e) => handleImageError(e, 'villa')}
@@ -104,20 +105,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             )}
           </div>
 
-          {/* Redaction Notice Alert */}
-          <div className="p-4 bg-[#F3F0EB] border-l-3 border-[#7A5B3E] text-xs text-[#59554E] flex items-start gap-3">
-            <AlertCircle className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong>Discretion Notice:</strong> In compliance with the client family’s security mandate, precise topographic contours, satellite azimuths, and full interior elevations are withheld from this public monograph. Complete unredacted schematics are viewable solely in-person at our private New Zealand atelier under a mutual non-disclosure agreement.
-            </p>
+          {/* Discretion Notice Banner */}
+          <div className="p-4 bg-[#F4F3EF] border border-[#E5E1D8] flex items-start gap-3 text-xs">
+            <ShieldCheck className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+            <div className="text-[#59554E] leading-relaxed">
+              <strong className="text-[#1C1B18]">Policy of Secrecy & Redacted Records:</strong> {project.discretionNotice}
+            </div>
           </div>
 
-          {/* Narrative & Specifications Grid */}
+          {/* Narrative & Details Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4 border-t border-[#E5E1D8]">
-            {/* Left Column: Project Story */}
+            {/* Left Column: Context, Challenge, Solution */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <h3 className="font-serif text-2xl text-[#1C1B18] mb-3">Architectural & Forensic Scope</h3>
+                <h3 className="font-serif text-2xl text-[#1C1B18] mb-3">Architectural Context</h3>
                 <p className="text-sm md:text-base text-[#59554E] leading-relaxed">
                   {project.description}
                 </p>
@@ -126,30 +127,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[#E5E1D8]/60">
                 <div className="space-y-2">
                   <div className="text-xs uppercase tracking-wider text-[#7A5B3E] font-semibold">
-                    The Structural & Security Challenge
+                    The Conservation Challenge
                   </div>
                   <p className="text-xs text-[#59554E] leading-relaxed">
-                    {project.challenge}
+                    {project.architecturalChallenge}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-xs uppercase tracking-wider text-[#7A5B3E] font-semibold">
-                    The Craftsmanship Solution
+                    The Craftsmanship Approach
                   </div>
                   <p className="text-xs text-[#59554E] leading-relaxed">
-                    {project.solution}
+                    {project.craftApproach}
                   </p>
                 </div>
               </div>
 
-              {/* Rare Materials Handled */}
+              {/* Note from Arthur T.J Henderson */}
+              {project.founderNote && (
+                <div className="p-5 bg-[#F4F3EF] border border-[#DCD6CA] space-y-2">
+                  <div className="text-xs uppercase tracking-wider text-[#7A5B3E] font-semibold">
+                    Note from Arthur T.J Henderson (Founder & Principal)
+                  </div>
+                  <p className="text-xs md:text-sm text-[#4A463F] font-serif italic leading-relaxed">
+                    "{project.founderNote}"
+                  </p>
+                </div>
+              )}
+
+              {/* Materials Used */}
               <div className="pt-4 border-t border-[#E5E1D8]/60">
                 <div className="text-xs uppercase tracking-wider text-[#7A5B3E] font-semibold mb-2">
-                  Rare & Geological Materials Deployed
+                  Key Materials & Native Timbers
                 </div>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#1C1B18]">
-                  {project.materialsUsed.map((mat, i) => (
-                    <span key={i} className="flex items-center gap-1.5">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#1C1B18]">
+                  {project.materials.map((mat, i) => (
+                    <span key={i} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E]" />
                       <span>{mat}</span>
                     </span>
@@ -158,32 +171,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Key Specifications & Testimonial */}
+            {/* Right Column: Key Specifications & Representative Statement */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-[#F4F3EF] p-6 border border-[#E5E1D8]">
-                <h4 className="text-xs uppercase tracking-widest text-[#7A5B3E] font-semibold mb-4 flex items-center gap-1.5">
-                  <FileKey className="w-4 h-4" />
-                  <span>Dossier Key Parameters</span>
+                <h4 className="text-xs uppercase tracking-widest text-[#7A5B3E] font-semibold mb-4">
+                  Commission Particulars
                 </h4>
                 <dl className="space-y-3 text-xs">
-                  {project.specs.map((spec, i) => (
+                  {project.details.map((detail, i) => (
                     <div key={i} className="flex justify-between items-start gap-4 pb-2 border-b border-[#E5E1D8]/60 last:border-0 last:pb-0">
-                      <dt className="text-[#706B62] shrink-0">{spec.label}</dt>
-                      <dd className="text-[#1C1B18] font-medium text-right">{spec.value}</dd>
+                      <dt className="text-[#706B62] shrink-0">{detail.label}</dt>
+                      <dd className="text-[#1C1B18] font-medium text-right">{detail.value}</dd>
                     </div>
                   ))}
                 </dl>
               </div>
 
-              {project.testimonial && (
+              {project.representativeStatement && (
                 <div className="bg-white p-6 border border-[#E5E1D8] relative">
                   <Quote className="w-6 h-6 text-[#7A5B3E]/30 mb-2" />
                   <p className="text-xs md:text-sm text-[#1C1B18] font-serif italic leading-relaxed">
-                    "{project.testimonial.quote}"
+                    "{project.representativeStatement.quote}"
                   </p>
                   <div className="mt-4 pt-3 border-t border-[#E5E1D8] text-xs">
-                    <span className="font-semibold text-[#1C1B18] block">{project.testimonial.author}</span>
-                    <span className="text-[#706B62] font-mono text-[11px]">{project.testimonial.location}</span>
+                    <span className="text-[#706B62]">{project.representativeStatement.designation}</span>
                   </div>
                 </div>
               )}
@@ -193,10 +204,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   onClose();
                   onInquire(project.title);
                 }}
-                className="w-full py-4 text-center text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
+                className="w-full py-4 text-center text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer shadow-xs"
               >
-                <Lock className="w-3.5 h-3.5 text-[#B89053]" />
-                <span>Request Private Dossier Access Under NDA</span>
+                Inquire Regarding Similar Works
               </button>
             </div>
           </div>

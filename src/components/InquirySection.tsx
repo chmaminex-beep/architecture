@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, CheckCircle, Shield, AlertCircle, Lock, KeyRound, FileCheck, Globe, Mail, ShieldAlert } from 'lucide-react';
+import { CheckCircle, AlertCircle, Mail, Phone, MapPin, Lock, ShieldCheck, FileText } from 'lucide-react';
 
 interface InquirySectionProps {
   prefilledProject?: string;
@@ -7,38 +7,40 @@ interface InquirySectionProps {
 
 export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject }) => {
   const [formData, setFormData] = useState({
-    representativeName: '',
-    familyOffice: '',
+    name: '',
+    roleOrTitle: 'Principal / Family Member',
+    estateOrOffice: '',
     email: '',
-    secureChannel: '',
-    jurisdiction: 'Arabian Gulf / Middle East',
-    scope: 'Sovereign Heritage Restoration & Fortification',
-    estimatedBudget: '$5M – $15M USD',
+    phone: '',
+    contactPreference: 'Email & Secure Phone',
+    region: 'Middle East & Arabian Gulf',
+    scope: 'Historic Stone & Timber Estate Conservation',
+    consultationType: 'Bilateral NDA Execution First',
     ndaAgreed: false,
-    confidentialNotes: prefilledProject ? `Inquiry regarding classified dossier: ${prefilledProject}` : '',
+    message: prefilledProject ? `Inquiring regarding: ${prefilledProject}` : '',
   });
-
-  useEffect(() => {
-    if (prefilledProject) {
-      setFormData((prev) => ({
-        ...prev,
-        confidentialNotes: `Inquiry regarding classified dossier: ${prefilledProject}`,
-      }));
-    }
-  }, [prefilledProject]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (prefilledProject) {
+      setFormData((prev) => ({
+        ...prev,
+        message: `Inquiring regarding: ${prefilledProject}`,
+      }));
+    }
+  }, [prefilledProject]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.representativeName.trim() || !formData.email.trim() || !formData.secureChannel.trim()) {
-      setError('Please provide your name, verification email, and secure contact channel for administrative vetting.');
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError('Please provide your name and a confidential email or secure phone number so Arthur T.J Henderson may reply.');
       return;
     }
     if (!formData.ndaAgreed) {
-      setError('You must confirm willingness to execute our standard Bilateral Non-Disclosure Covenant prior to confidential discussions.');
+      setError('Please acknowledge our confidentiality standard before submitting.');
       return;
     }
     setError(null);
@@ -47,7 +49,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 700);
+    }, 600);
   };
 
   return (
@@ -56,53 +58,45 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Private Office & Administrative Clearance</span>
+            <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2 flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-[#7A5B3E]" />
+              <span>The Private Office · Confidential Correspondence</span>
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
-              Initiate Confidential Dialogue
+              Initiate a Private Dialogue
             </h2>
             <p className="text-sm md:text-base text-[#59554E] mt-3 leading-relaxed">
-              Restorations by Henderson & Co. operates under strict policy discretion. We limit global commitments to 3–4 sovereign and private dynasty commissions annually, ensuring Arthur (Todd James) Henderson’s undivided personal oversight.
+              We limit our practice to three or four substantial residential commissions each year to ensure Founder Arthur T.J Henderson’s personal oversight on every estate. All inquiries are treated with absolute discretion.
             </p>
           </div>
           <div className="text-xs text-[#706B62] space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-600" />
-              <span className="font-medium text-[#1C1B18]">Administrative Review Queue: Active</span>
-            </div>
-            <div>Bilateral Non-Disclosure Agreements Executed Prior to Detail Release</div>
+            <div className="font-medium text-[#1C1B18]">Reviewing Works for 2026 & 2027 Calendar</div>
+            <div>Direct Principal Review by Arthur T.J Henderson within 48 Hours</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column: Discreet Location & Security Protocols */}
+          {/* Left Column: Workshop Location & Protocol */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="bg-white p-8 border border-[#E5E1D8] space-y-6">
-              <div className="flex items-center justify-between border-b border-[#E5E1D8] pb-4">
-                <h3 className="font-serif text-2xl text-[#1C1B18]">
-                  The Private Office
-                </h3>
-                <span className="text-[10px] font-mono uppercase bg-[#F3F0EB] px-2 py-1 text-[#7A5B3E] border border-[#DCD6CA]">
-                  RESTRICTED ACCESS
-                </span>
-              </div>
+            <div className="bg-white p-8 border border-[#E5E1D8] space-y-6 shadow-xs">
+              <h3 className="font-serif text-2xl text-[#1C1B18]">
+                The Atelier & Seasoning Yards
+              </h3>
 
               <p className="text-xs md:text-sm text-[#59554E] leading-relaxed">
-                To safeguard client privacy and maintain total operational security, physical access to our New Zealand facilities is conducted strictly via private invitation, prior accreditation, and secure escort.
+                To safeguard the privacy of our patrons and maintain the quiet concentration required for our timber joinery, our New Zealand seasoning yards and workshop are situated on an unmarked high-country station. The premises are closed to the public; visits are arranged strictly by private invitation for confirmed clients.
               </p>
 
-              <div className="space-y-4 pt-2 text-xs">
+              <div className="space-y-4 pt-4 border-t border-[#E5E1D8] text-xs">
                 <div className="flex items-start gap-3">
-                  <Shield className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Atelier & Curing Vault Location</span>
-                    <span className="text-[#706B62]">
-                      Southern Alpine Sector, Remote Conservation Boundary, South Island, New Zealand
+                    <span className="font-semibold text-[#1C1B18] block">Atelier & Seasoning Yards</span>
+                    <span className="text-[#706B62] leading-relaxed">
+                      Upper Ahuriri Basin, Ben Ohau Range, South Island, New Zealand
                     </span>
-                    <span className="text-[11px] text-[#7A5B3E] block mt-0.5 font-mono">
-                      (Coordinates & Private Air-Strip Details Disclosed Upon Vetting)
+                    <span className="text-[11px] text-[#7A5B3E] block mt-0.5">
+                      (Access by Private Arrangement Only · Unmarked Domain)
                     </span>
                   </div>
                 </div>
@@ -110,103 +104,99 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Administrative Dispatch & Courier</span>
+                    <span className="font-semibold text-[#1C1B18] block">Postal Dispatch & Courier</span>
                     <span className="text-[#706B62]">
-                      Diplomatic Bag / P.O. Box 4902, Southern Alpine District, New Zealand
+                      Private Bag 14, Remote Rural Service, Canterbury 7949, New Zealand
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Lock className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Direct Electronic Inquiries</span>
-                    <a href="mailto:private-office@hendersonrestorations.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors font-mono">
-                      private-office@hendersonrestorations.co.nz
+                    <span className="font-semibold text-[#1C1B18] block">Private Office Inquiries</span>
+                    <a href="mailto:office@hendersonrestorations.co.nz" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors font-mono">
+                      office@hendersonrestorations.co.nz
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <KeyRound className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
+                  <Phone className="w-4 h-4 text-[#7A5B3E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#1C1B18] block">Encrypted Voice / Signal</span>
-                    <span className="text-[#706B62]">
-                      Signal Protocol ID provided via verified diplomatic transmission
-                    </span>
+                    <span className="font-semibold text-[#1C1B18] block">Direct Atelier Telephone</span>
+                    <a href="tel:+6436858120" className="text-[#1C1B18] hover:text-[#7A5B3E] transition-colors font-mono">
+                      +64 (03) 685 8120
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Verification Protocol Box */}
+            {/* How We Work Box */}
             <div className="bg-[#EFECE6] p-6 border border-[#DCD6CA] space-y-3 text-xs">
-              <div className="font-semibold uppercase tracking-wider text-[#7A5B3E] flex items-center gap-2">
-                <FileCheck className="w-4 h-4" />
-                <span>The Four-Stage Vetting Protocol</span>
+              <div className="font-semibold uppercase tracking-wider text-[#7A5B3E] flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>The Practice Protocol</span>
               </div>
-              <ul className="space-y-2.5 text-[#59554E]">
+              <ul className="space-y-2.5 text-[#59554E] leading-relaxed">
                 <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#7A5B3E] font-semibold">01.</span>
-                  <span>Administrative Identity Verification of Representative or Family Office Trustee.</span>
+                  <span className="text-[#7A5B3E] font-bold">1.</span>
+                  <span><strong>Direct Consultation:</strong> A confidential discussion with Arthur T.J Henderson to review your estate’s history, microclimate, and conservation goals.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#7A5B3E] font-semibold">02.</span>
-                  <span>Execution of Mutual Bilateral Non-Disclosure Agreement (NDA).</span>
+                  <span className="text-[#7A5B3E] font-bold">2.</span>
+                  <span><strong>Bilateral NDA:</strong> Mutual non-disclosure covenant executed before any architectural plans, aerial photography, or family details are shared.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#7A5B3E] font-semibold">03.</span>
-                  <span>Encrypted Discovery Briefing with Founder Arthur (Todd James) Henderson.</span>
+                  <span className="text-[#7A5B3E] font-bold">3.</span>
+                  <span><strong>Principal Inspection:</strong> Arthur T.J Henderson travels personally to the estate to inspect stone, timber decay, and local environmental stress.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#7A5B3E] font-semibold">04.</span>
-                  <span>Private In-Person Inspection of Materials Vault & Unredacted Case Studies.</span>
+                  <span className="text-[#7A5B3E] font-bold">4.</span>
+                  <span><strong>Permanent Artisans:</strong> Dedicated in-house craftsmen from New Zealand on-site until final handover. Zero third-party subcontractors.</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Right Column: Confidential Vetting & Commission Form */}
+          {/* Right Column: Inquiry Form */}
           <div className="lg:col-span-7">
             {submitted ? (
-              <div className="bg-white p-10 border border-[#E5E1D8] text-center space-y-6">
+              <div className="bg-white p-10 border border-[#E5E1D8] text-center space-y-6 shadow-xs">
                 <div className="w-14 h-14 bg-[#7A5B3E]/10 rounded-full flex items-center justify-center mx-auto text-[#7A5B3E]">
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-3xl text-[#1C1B18]">
-                  Transmission Received
+                  Inquiry Received Under Confidential Protocol
                 </h3>
                 <p className="text-sm text-[#59554E] max-w-md mx-auto leading-relaxed">
-                  Your communication has been encrypted and routed directly to the Private Office administrator and Founder Arthur (Todd James) Henderson. An encrypted verification response and mutual NDA packet will be dispatched within 24 hours.
+                  Thank you. Your message has been routed directly to Arthur T.J Henderson. All details will remain strictly confidential. Arthur T.J Henderson or his private secretary will be in contact within forty-eight hours.
                 </p>
-                <div className="pt-6 border-t border-[#E5E1D8] text-xs font-mono text-[#706B62]">
-                  Encrypted Dispatch Reference: NZ-SEC-{Math.floor(100000 + Math.random() * 900000)} · Sealed Transmission
+                <div className="pt-6 border-t border-[#E5E1D8] text-xs text-[#706B62]">
+                  Private Bag 14, Remote Rural Service, New Zealand · office@hendersonrestorations.co.nz
                 </div>
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     setFormData({
                       ...formData,
-                      confidentialNotes: '',
+                      message: '',
                     });
                   }}
-                  className="px-6 py-2.5 text-xs text-[#7A5B3E] underline hover:text-[#1C1B18]"
+                  className="px-6 py-2.5 text-xs text-[#7A5B3E] underline hover:text-[#1C1B18] cursor-pointer"
                 >
-                  Submit supplementary documentation
+                  Send another confidential inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 border border-[#E5E1D8] space-y-6">
+              <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 border border-[#E5E1D8] space-y-6 shadow-xs">
                 <div className="border-b border-[#E5E1D8] pb-4">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#7A5B3E] mb-1">
-                    <Lock className="w-3.5 h-3.5" />
-                    <span>ENCRYPTED INQUIRY FORM</span>
-                  </div>
                   <h3 className="font-serif text-2xl text-[#1C1B18]">
-                    Confidential Commission Registration
+                    Confidential Commission Inquiry
                   </h3>
                   <p className="text-xs text-[#706B62] mt-1">
-                    All inputs remain strictly confidential under our foundational privacy covenants.
+                    Please provide an initial overview of your residence. All information is protected by legal confidentiality.
                   </p>
                 </div>
 
@@ -218,122 +208,156 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                 )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Representative Name */}
+                  {/* Name */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Principal / Representative Name *
+                      Your Name / Representative *
                     </label>
                     <input
                       type="text"
                       required
-                      value={formData.representativeName}
-                      onChange={(e) => setFormData({ ...formData, representativeName: e.target.value })}
-                      placeholder="e.g. Dr. H. Al-Mansoor / Legal Counsel"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Tariq Al-Nuaimi / Lord Sterling"
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     />
                   </div>
 
-                  {/* Family Office / Entity */}
+                  {/* Role / Capacity */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Entity / Royal Household / Family Office
+                      Capacity / Representation
                     </label>
-                    <input
-                      type="text"
-                      value={formData.familyOffice}
-                      onChange={(e) => setFormData({ ...formData, familyOffice: e.target.value })}
-                      placeholder="e.g. Private Dynasty Trust / Confidential"
+                    <select
+                      value={formData.roleOrTitle}
+                      onChange={(e) => setFormData({ ...formData, roleOrTitle: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    />
+                    >
+                      <option value="Principal / Family Member">Principal / Family Member</option>
+                      <option value="Family Office Director / Trustee">Family Office Director / Trustee</option>
+                      <option value="Royal Chamberlain / Private Secretary">Royal Chamberlain / Private Secretary</option>
+                      <option value="Legal Counsel / Solicitor">Legal Counsel / Solicitor</option>
+                      <option value="Coordinating Architect of Record">Coordinating Architect of Record</option>
+                    </select>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Verification Email */}
+                  {/* Estate / Family Office */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Verification Email *
+                      Estate, Family Office, or Trust
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.estateOrOffice}
+                      onChange={(e) => setFormData({ ...formData, estateOrOffice: e.target.value })}
+                      placeholder="e.g. Private Family Office (Optional)"
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
+                      Confidential Email *
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="counsel@family-trust.ch"
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
-                    />
-                  </div>
-
-                  {/* Secure Channel */}
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Secure Phone / Signal Channel *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.secureChannel}
-                      onChange={(e) => setFormData({ ...formData, secureChannel: e.target.value })}
-                      placeholder="+971 50 ... / +41 22 ..."
+                      placeholder="confidential@office-domain.com"
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Geographic Jurisdiction */}
+                  {/* Telephone */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Territory / Jurisdiction
+                      Secure Phone / Direct Line
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+971 ... / +44 ... / +64 ..."
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
+                    />
+                  </div>
+
+                  {/* Consultation Preference */}
+                  <div>
+                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
+                      Preferred Step
                     </label>
                     <select
-                      value={formData.jurisdiction}
-                      onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
+                      value={formData.consultationType}
+                      onChange={(e) => setFormData({ ...formData, consultationType: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     >
-                      <option value="Arabian Gulf / Middle East">Arabian Gulf / Middle East (Emirati & Royal Estates)</option>
-                      <option value="East Asia (Dynasty Domain)">East Asia (Sovereign & Private Compounds)</option>
-                      <option value="Southern Alps / New Zealand">Southern Alps & Lakes / New Zealand</option>
-                      <option value="Continental Europe (Palais & Alpine)">Continental Europe (Private Palais & Alpine)</option>
-                      <option value="Pacific Atoll / Island Enclave">Pacific Atoll / Private Island</option>
-                      <option value="Confidential Global Jurisdiction">Other Confidential Global Jurisdiction</option>
+                      <option value="Bilateral NDA Execution First">Execute Mutual NDA First</option>
+                      <option value="Direct Telephone Consultation">Direct Phone Call with Arthur T.J Henderson</option>
+                      <option value="Courier Dispatch of Physical Monograph">Courier Physical Linen Folio & Timber Box</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Region */}
+                  <div>
+                    <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
+                      Property Territory
+                    </label>
+                    <select
+                      value={formData.region}
+                      onChange={(e) => setFormData({ ...formData, region: e.target.value })}
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
+                    >
+                      <option value="Middle East & Arabian Gulf">Middle East & Arabian Gulf Coastline</option>
+                      <option value="East Asia & Royal Domains">East Asia (Japan, Singapore & Regional Domains)</option>
+                      <option value="Continental Europe">Continental Europe & Mediterranean Promontories</option>
+                      <option value="Pacific & Alpine New Zealand">New Zealand High Country & South Pacific</option>
+                      <option value="Other Global Sanctuary">Other Private Global Estate</option>
                     </select>
                   </div>
 
-                  {/* Commission Scope */}
+                  {/* Scope */}
                   <div>
                     <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                      Commission Typology
+                      Intended Scope
                     </label>
                     <select
                       value={formData.scope}
                       onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E]"
                     >
-                      <option value="Sovereign Heritage Restoration & Fortification">Historical Palace Restoration & Fortification</option>
-                      <option value="Subterranean Vault & Private Archive">Subterranean Vault & Art Archive</option>
-                      <option value="Ancient Swamp Kauri Allocation">Ancient 45,000-Year Kauri Joinery Allocation</option>
-                      <option value="Stealth Ballistic Joinery & Acoustic Isolation">Stealth Ballistic Fenestration & EMP Shielding</option>
-                      <option value="Full Sovereign Estate Masterplan">Full Sovereign Estate Masterplan</option>
+                      <option value="Historic Stone & Timber Estate Conservation">Historic Stone & Timber Estate Conservation</option>
+                      <option value="Bespoke High-Performance Timber Joinery & Sashes">Bespoke Timber Joinery & Sashes (Extreme Climates)</option>
+                      <option value="Contemporary Glass & Timber Pavilion">Contemporary Glass & Timber Pavilion Addition</option>
+                      <option value="Confidential Acoustic Salons & Private Library">Confidential Acoustic Salons & Council Chambers</option>
+                      <option value="Subterranean Thermal & Seismic Engineering">Subterranean Thermal & Seismic Conservation</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Confidential Notes */}
+                {/* Notes / Message */}
                 <div>
                   <label className="block text-xs font-medium text-[#1C1B18] uppercase tracking-wider mb-1.5">
-                    Confidential Commission Overview & Preliminary Directives
+                    Initial Overview for Arthur T.J Henderson
                   </label>
                   <textarea
                     rows={4}
-                    value={formData.confidentialNotes}
-                    onChange={(e) => setFormData({ ...formData, confidentialNotes: e.target.value })}
-                    placeholder="Provide generalized architectural directives (e.g. 19th-century maritime compound requiring stone consolidation, sub-floor vault, and private security fenestration; strict client confidentiality mandate)..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Describe the nature of the property, its approximate period, any structural, climatic, or acoustic challenges, and your desired timeframe..."
                     className="w-full px-3.5 py-2.5 text-xs bg-[#FAF9F6] border border-[#DCD6CA] focus:bg-white focus:outline-none focus:border-[#7A5B3E] leading-relaxed"
                   />
                 </div>
 
-                {/* Bilateral NDA Agreement Checkbox */}
+                {/* Discretion Checkbox */}
                 <div className="p-4 bg-[#FAF9F6] border border-[#DCD6CA] flex items-start gap-3">
                   <input
                     type="checkbox"
@@ -343,7 +367,7 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                     className="mt-0.5 w-4 h-4 text-[#7A5B3E] focus:ring-[#7A5B3E] border-[#DCD6CA] cursor-pointer"
                   />
                   <label htmlFor="ndaAgreed" className="text-xs text-[#59554E] cursor-pointer leading-relaxed">
-                    <strong className="text-[#1C1B18]">Bilateral NDA Covenant Acceptance:</strong> I understand that all consultations, property identifiers, and material specifications are protected under strict international non-disclosure covenants. I confirm authority to represent the aforementioned principal or family office.
+                    <strong className="text-[#1C1B18]">Bilateral Confidentiality Standard:</strong> I understand that Restorations by Henderson & Co. operates under strict secrecy, and all discussions, site particulars, and architectural documents are protected under professional legal confidence.
                   </label>
                 </div>
 
@@ -353,18 +377,11 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ prefilledProject
                   disabled={isSubmitting}
                   className="w-full py-4 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
                 >
-                  {isSubmitting ? (
-                    <span>Encrypting & Routing Transmission to Administrator...</span>
-                  ) : (
-                    <>
-                      <Lock className="w-3.5 h-3.5 text-[#B89053]" />
-                      <span>Transmit to Private Office Administrator Under NDA</span>
-                    </>
-                  )}
+                  {isSubmitting ? 'Transmitting to Arthur T.J Henderson...' : 'Submit Confidential Inquiry'}
                 </button>
 
                 <p className="text-[11px] text-[#706B62] text-center">
-                  All communications are encrypted end-to-end. Restorations by Henderson & Co. operates with an unblemished zero-leak discretion policy active since 1997.
+                  Restorations by Henderson & Co. Ltd. · Operational continuously since 1997 · Governed by New Zealand and English common law covenants.
                 </p>
               </form>
             )}

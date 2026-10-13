@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Clock, Calendar, Bookmark, ArrowRight, Lightbulb } from 'lucide-react';
+import { X, ArrowRight, BookOpen } from 'lucide-react';
 import { Article } from '../data/articles';
 import { handleImageError } from '../utils/imageFallback';
 
@@ -13,14 +13,14 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
   if (!article) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 md:p-8 animate-fade-in">
       <div
         className="bg-[#FAF9F6] w-full max-w-4xl overflow-hidden border border-[#DCD6CA] shadow-2xl relative my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Bar */}
         <div className="sticky top-0 z-30 bg-[#FAF9F6]/95 backdrop-blur-md px-6 py-4 border-b border-[#E5E1D8] flex items-center justify-between">
-          <div className="flex items-center gap-3 text-xs text-[#706B62]">
+          <div className="flex items-center gap-3 text-xs text-[#706B62] flex-wrap">
             <span className="uppercase tracking-widest text-[#7A5B3E] font-medium">{article.category}</span>
             <span>·</span>
             <span>{article.publishDate}</span>
@@ -68,7 +68,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
           </div>
 
           {/* Lead Paragraph */}
-          <div className="text-base md:text-lg text-[#1C1B18] font-serif leading-relaxed italic border-l-2 border-[#7A5B3E] pl-6 py-1">
+          <div className="text-base md:text-lg text-[#1C1B18] font-serif leading-relaxed italic border-l border-[#7A5B3E] pl-6 py-1">
             "{article.content.lead}"
           </div>
 
@@ -82,12 +82,11 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
                 <p>{section.body}</p>
 
                 {section.craftsmanTip && (
-                  <div className="bg-[#F3F0EB] p-5 border-l-2 border-[#7A5B3E] my-4 text-xs md:text-sm text-[#3A362F]">
-                    <div className="flex items-center gap-2 text-[#7A5B3E] font-semibold uppercase tracking-wider text-xs mb-1">
-                      <Lightbulb className="w-3.5 h-3.5" />
-                      <span>Arthur Henderson’s Workshop Rule</span>
+                  <div className="bg-[#F3F0EB] p-5 border border-[#DCD6CA] my-4 text-xs md:text-sm text-[#3A362F]">
+                    <div className="text-[#7A5B3E] font-semibold uppercase tracking-wider text-xs mb-1">
+                      Arthur T.J Henderson’s Atelier Practice Note
                     </div>
-                    <p className="leading-relaxed">{section.craftsmanTip}</p>
+                    <p className="leading-relaxed font-serif italic text-base">{section.craftsmanTip}</p>
                   </div>
                 )}
               </div>
@@ -97,31 +96,31 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose, on
           {/* Key Architectural Takeaways */}
           <div className="bg-[#FAF8F5] p-6 border border-[#E5E1D8] space-y-3">
             <h3 className="text-xs uppercase tracking-widest text-[#7A5B3E] font-semibold">
-              Craftsman’s Summary & Key Principles
+              Principal Observations & Summary
             </h3>
-            <ul className="space-y-2 text-xs md:text-sm text-[#4A463F]">
-              {article.content.takeaways.map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A5B3E] mt-2 shrink-0" />
+            <ul className="space-y-2 text-xs md:text-sm text-[#59554E]">
+              {article.content.takeaways.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="text-[#7A5B3E] font-bold">·</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Article Footer CTA */}
-          <div className="pt-8 border-t border-[#E5E1D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          {/* Footer Call to Action */}
+          <div className="pt-6 border-t border-[#E5E1D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="text-xs text-[#706B62]">
-              Technical inquiries regarding sovereign estate security are reviewed directly by the Founder.
+              Inquiries regarding technical conservation papers or physical timber specimens may be submitted to our Private Office.
             </div>
             <button
               onClick={() => {
                 onClose();
                 onOpenInquiry();
               }}
-              className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors cursor-pointer flex items-center gap-2"
+              className="px-6 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors whitespace-nowrap cursor-pointer shadow-xs"
             >
-              <span>Consult Arthur Henderson Under NDA</span>
+              Consult with Arthur T.J Henderson
             </button>
           </div>
         </div>

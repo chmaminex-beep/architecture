@@ -1,120 +1,119 @@
 import React from 'react';
-import { ArrowDownRight, ShieldCheck, Lock, Globe2 } from 'lucide-react';
+import { ArrowDownRight, ShieldCheck, Lock } from 'lucide-react';
 import heroVilla from '../assets/images/hero_herne_bay_villa_1791295635699.jpg';
 import { handleImageError } from '../utils/imageFallback';
 
 interface HeroProps {
   onExplorePortfolio: () => void;
   onOpenInquiry: () => void;
+  onOpenDiscretionProtocol: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExplorePortfolio, onOpenInquiry }) => {
+export const Hero: React.FC<HeroProps> = ({
+  onExplorePortfolio,
+  onOpenInquiry,
+  onOpenDiscretionProtocol
+}) => {
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-[#E5E1D8]">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Editorial Sub-Header / Sovereign Discretion Banner */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#E5E1D8]">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium">
-            <span className="w-2 h-2 rounded-full bg-[#7A5B3E] animate-pulse" />
-            <span>Private Atelier · Southern Ridges, New Zealand · Est. 1997 · Global Sovereign Practice</span>
+        {/* Editorial Sub-Header / Quiet Regional Placement */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 pb-6 border-b border-[#E5E1D8]">
+          <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium flex items-center gap-2">
+            <span>Private Architectural Conservation & Master Joinery · Est. 1997</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-[#706B62] tracking-wide">
+          <button
+            onClick={onOpenDiscretionProtocol}
+            className="text-xs text-[#706B62] hover:text-[#1C1B18] transition-colors flex items-center gap-1.5 cursor-pointer text-left sm:text-right"
+          >
             <Lock className="w-3.5 h-3.5 text-[#7A5B3E]" />
-            <span>Bilateral Non-Disclosure Covenant · Access Strictly by Admin Vetting</span>
-          </div>
+            <span className="underline underline-offset-2">Bilateral Non-Disclosure Covenant Policy</span>
+          </button>
         </div>
 
         {/* Hero Title & Value Proposition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-14">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-3">
-              <ShieldCheck className="w-4 h-4 text-[#7A5B3E]" />
-              <span>Confidential Commissions For Royal Households & Private Family Offices</span>
-            </div>
             <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal leading-[1.08] text-[#1C1B18] tracking-tight text-balance">
-              Sovereign heritage restoration. Absolute discretion.
+              Restoring architectural soul. Preserving private sanctuaries.
             </h1>
           </div>
           <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-6">
             <p className="text-base text-[#59554E] leading-relaxed">
-              Led by Founder Arthur (Todd James) Henderson, our practice executes confidential historic restorations, forensic joinery, and fortified luxury retreats for high-profile individuals, Emirati royal families, Asian dynasties, and private collectors worldwide. All works are protected under perpetual non-disclosure agreements.
+              Led by Founder Arthur T.J Henderson, our studio undertakes the sensitive restoration of historic residences, bespoke timber fenestration, and secluded contemporary pavilions for private families, royal households, and high-profile individuals across the Arabian Gulf, East Asia, Europe, and the South Pacific.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={onOpenInquiry}
-                className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors whitespace-nowrap cursor-pointer shadow-xs flex items-center gap-2"
+                className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C1B18] hover:bg-[#7A5B3E] transition-colors whitespace-nowrap cursor-pointer shadow-xs"
               >
-                <Lock className="w-3 h-3 text-[#B89053]" />
-                <span>Inquire Under Mutual NDA</span>
+                Confidential Inquiry
               </button>
               <button
                 onClick={onExplorePortfolio}
                 className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-[#1C1B18] bg-transparent hover:bg-[#EFECE6] border border-[#1C1B18] transition-colors whitespace-nowrap cursor-pointer flex items-center gap-2"
               >
-                <span>Curated Excerpts</span>
+                <span>Selected Works</span>
                 <ArrowDownRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Hero Visual Showcase: Anonymized Sovereign Commission */}
+        {/* Hero Visual Showcase */}
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#ECE8E1] border border-[#DCD6CA] group">
           <img
             src={heroVilla}
-            alt="Anonymized sovereign coastal compound restoration"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102 filter contrast-[1.03]"
+            alt="Private coastal residence restored by Restorations by Henderson & Co."
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
             referrerPolicy="no-referrer"
             onError={(e) => handleImageError(e, 'villa')}
           />
           {/* Subtle architectural gradient scrim */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
 
-          {/* Project Tagline on image */}
+          {/* Project Details Overlay (Discreet & Anonymized) */}
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#E5D7C7] mb-1 font-medium bg-black/40 px-2.5 py-1 border border-white/10 backdrop-blur-xs">
-                <Lock className="w-3 h-3 text-[#B89053]" />
-                <span>Classified Commission · Redacted Coordinates · Code ME-SOV-07</span>
+              <div className="text-xs uppercase tracking-widest text-[#E5D7C7] mb-1 font-medium flex items-center gap-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E5D7C7]" />
+                <span>Protected Commission Archive · Arabian Gulf Domain</span>
               </div>
               <h2 className="font-serif text-2xl md:text-3xl font-normal text-white">
-                Sanctuary VII · Coastal Sovereign Compound
+                The Coastal Domain & Sea Pavilion
               </h2>
             </div>
-            <div className="text-xs text-[#E5D7C7] flex items-center gap-4 bg-black/60 backdrop-blur-md px-4 py-2 border border-white/15">
-              <span>Sovereign Client Protocol</span>
+            <div className="text-xs text-[#E5D7C7] flex items-center gap-3 bg-black/60 backdrop-blur-md px-4 py-2 border border-white/10">
+              <span>Heart Kauri Joinery</span>
               <span>·</span>
-              <span>Bespoke Kauri & Titanium Core</span>
+              <span>Coral Limestone</span>
               <span>·</span>
-              <span className="text-[#B89053]">Full Dossier Under NDA</span>
+              <span className="text-[#C5A376]">Bilateral NDA Protected</span>
             </div>
           </div>
         </div>
 
-        {/* Quantitative Proof Section: Sovereign Discretion & Scale */}
+        {/* Quantitative Proof Section (Clean Editorial Layout with Tabular Numerals) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 mt-10 border-t border-[#E5E1D8]">
           <div className="space-y-1">
-            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">100%</div>
-            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Confidentiality Record</div>
-            <p className="text-xs text-[#8A857B] pt-0.5">Zero leaks across 29 years of global royal and private family office commissions.</p>
-          </div>
-          <div className="space-y-1">
             <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">29+</div>
-            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Years Active Since 1997</div>
-            <p className="text-xs text-[#8A857B] pt-0.5">Forensic joinery, stealth ballistics, and private estate conservation.</p>
+            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Years in Practice</div>
+            <p className="text-xs text-[#8A857B] pt-0.5">Continuous master craftsmanship and private conservation since 1997.</p>
           </div>
           <div className="space-y-1">
-            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums flex items-center gap-1.5">
-              <span>Global</span>
-              <Globe2 className="w-4 h-4 text-[#7A5B3E] inline" />
-            </div>
-            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Sovereign Jurisdictions</div>
-            <p className="text-xs text-[#8A857B] pt-0.5">Discreet works spanning the Arabian Gulf, East Asia, Europe, and Southern Alps.</p>
+            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">Global</div>
+            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Commissions</div>
+            <p className="text-xs text-[#8A857B] pt-0.5">Private residences across the Middle East, East Asia, Europe, and New Zealand.</p>
           </div>
           <div className="space-y-1">
-            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">Private</div>
-            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Alpine Timber Vault</div>
-            <p className="text-xs text-[#8A857B] pt-0.5">Secluded high-country workshop preserving 45,000-year-old ancient kauri reserves.</p>
+            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">100%</div>
+            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Confidentiality</div>
+            <p className="text-xs text-[#8A857B] pt-0.5">Every undertaking governed by legally binding non-disclosure covenants.</p>
+          </div>
+          <div className="space-y-1">
+            <div className="font-serif text-3xl md:text-4xl text-[#1C1B18] tabular-nums">In-House</div>
+            <div className="text-xs uppercase tracking-wider text-[#706B62] font-medium">Master Artisans</div>
+            <p className="text-xs text-[#8A857B] pt-0.5">Permanent vetted carpenters and conservators. Zero third-party subcontractors.</p>
           </div>
         </div>
       </div>

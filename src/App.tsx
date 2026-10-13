@@ -14,6 +14,7 @@ import { InquirySection } from './components/InquirySection';
 import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { ArticleModal } from './components/ArticleModal';
+import { DiscretionModal } from './components/DiscretionModal';
 import { Project } from './data/projects';
 import { Article } from './data/articles';
 import craftKauri from './assets/images/craft_kauri_timber_joinery_1791295657642.jpg';
@@ -22,6 +23,7 @@ import projectPonsonby from './assets/images/project_ponsonby_extension_17912956
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [discretionModalOpen, setDiscretionModalOpen] = useState(false);
   const [inquiryPrefill, setInquiryPrefill] = useState<string>('');
 
   const handleOpenInquiry = (projectName?: string) => {
@@ -43,8 +45,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#1C1B18] flex flex-col font-sans selection:bg-[#7A5B3E]/15 selection:text-[#1C1B18]">
-      {/* Top Bar Navigation */}
-      <Navbar onOpenInquiry={() => handleOpenInquiry()} />
+      {/* Top Bar Navigation (Clean 3-Zone Contract) */}
+      <Navbar
+        onOpenInquiry={() => handleOpenInquiry()}
+        onOpenDiscretionProtocol={() => setDiscretionModalOpen(true)}
+      />
 
       {/* Main Content Flow */}
       <main className="flex-1">
@@ -52,25 +57,27 @@ export default function App() {
         <Hero
           onExplorePortfolio={handleExplorePortfolio}
           onOpenInquiry={() => handleOpenInquiry()}
+          onOpenDiscretionProtocol={() => setDiscretionModalOpen(true)}
         />
 
         {/* Interactive Before & After Transformation Slider */}
         <BeforeAfterSlider
           beforeImage={craftKauri}
           afterImage={projectPonsonby}
-          beforeLabel="Structural Consolidation & Subterranean Vault Assembly"
-          afterLabel="Completed Sovereign Pavilion & Glazed Sanctuary"
-          title="The Anatomy of Transformation · Sovereign Commission"
-          subtitle="Classified Private Compound · East Asia Domain (EA-DYNA-02)"
-          description="Slide across to examine how our master team preserved centuries-old hand-hewn structural timber columns while interfacing an expansive 20-metre cantilevered glass pavilion under strict bilateral non-disclosure covenants."
+          beforeLabel="Structural Timber Consolidation & Joinery Scarfing"
+          afterLabel="Completed Living Pavilion & Cantilevered Gallery"
+          title="The Anatomy of Transformation · Confidential Commission"
+          subtitle="Forest Sanctuary & Hillside Pavilion · East Asia Domain"
+          description="Drag the slider to examine how our team stabilized centuries-old hand-hewn structural columns with concealed internal flitches while introducing an expansive 18-metre cantilevered glass pavilion opening directly onto the protected moss garden."
         />
 
         {/* Extensive Architectural Portfolio Showcase */}
         <Portfolio
           onSelectProject={(project) => setSelectedProject(project)}
+          onOpenInquiry={(title) => handleOpenInquiry(title)}
         />
 
-        {/* Craftsmanship Code & Arthur Henderson's Story */}
+        {/* Craftsmanship Code & Arthur T.J Henderson's Atelier */}
         <CraftsmanshipSection />
 
         {/* Integrated Blog / Craftsman's Journal */}
@@ -78,14 +85,16 @@ export default function App() {
           onSelectArticle={(article) => setSelectedArticle(article)}
         />
 
-        {/* Project Inquiries & Private Consultations Form */}
+        {/* Project Inquiries & Private Office Form */}
         <InquirySection
           prefilledProject={inquiryPrefill}
         />
       </main>
 
       {/* Refined Architectural Footer */}
-      <Footer />
+      <Footer
+        onOpenDiscretionProtocol={() => setDiscretionModalOpen(true)}
+      />
 
       {/* Modals */}
       <ProjectModal
@@ -98,6 +107,15 @@ export default function App() {
         article={selectedArticle}
         onClose={() => setSelectedArticle(null)}
         onOpenInquiry={() => handleOpenInquiry()}
+      />
+
+      <DiscretionModal
+        isOpen={discretionModalOpen}
+        onClose={() => setDiscretionModalOpen(false)}
+        onOpenInquiry={() => {
+          setDiscretionModalOpen(false);
+          handleOpenInquiry();
+        }}
       />
     </div>
   );

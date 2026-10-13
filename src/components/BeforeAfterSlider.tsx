@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { ArrowLeftRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeftRight } from 'lucide-react';
 import { handleImageError } from '../utils/imageFallback';
 
 interface BeforeAfterSliderProps {
@@ -15,11 +15,11 @@ interface BeforeAfterSliderProps {
 export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   beforeImage,
   afterImage,
-  beforeLabel = 'Original Condition / Structural Consolidation',
-  afterLabel = 'Completed Master Craftsmanship & Modern Pavilion',
-  title = 'The Anatomy of Transformation',
-  subtitle = 'Ponsonby Heritage Villa · 1905 to Contemporary Living',
-  description = 'Drag the slider to examine how our team structurally preserved the 120-year-old street frontage while opening the rear into an expansive light-filled architectural pavilion.'
+  beforeLabel = 'Structural Timber Consolidation & Joinery Scarfing',
+  afterLabel = 'Completed Living Pavilion & Cantilevered Gallery',
+  title = 'The Anatomy of Transformation · Confidential Commission',
+  subtitle = 'Forest Sanctuary & Hillside Pavilion · East Asia Domain',
+  description = 'Drag the slider to examine how our team stabilized centuries-old hand-hewn structural columns with concealed internal flitches while introducing an expansive 18-metre cantilevered glass pavilion opening directly onto the protected moss garden.'
 }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -49,7 +49,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-[#E5E1D8]">
           <div className="max-w-2xl">
             <div className="text-xs uppercase tracking-widest text-[#7A5B3E] font-medium mb-2">
-              Forensic Preservation & Extension
+              {subtitle}
             </div>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#1C1B18] tracking-tight">
               {title}
@@ -99,8 +99,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
               referrerPolicy="no-referrer"
               onError={(e) => handleImageError(e, 'craft')}
             />
-            {/* Before Tint Filter for vintage / structural realism */}
-            <div className="absolute inset-0 bg-[#352F27]/20 mix-blend-multiply pointer-events-none" />
+            {/* Before Tint Filter for structural realism */}
+            <div className="absolute inset-0 bg-[#352F27]/15 mix-blend-multiply pointer-events-none" />
           </div>
 
           {/* Divider Line */}
@@ -130,16 +130,16 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         {/* Technical Sub-Caption */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 mt-6 border-t border-[#E5E1D8]/60 text-xs text-[#59554E]">
           <div>
-            <span className="font-semibold text-[#1C1B18] block mb-1">Structural Reinforcement</span>
-            Replaced failing unreinforced brick foundations with seismic concrete ring beam and grade 350 flitched steel portal frames.
+            <span className="font-semibold text-[#1C1B18] block mb-1">Structural Timber Stabilization</span>
+            Traditional blind scarf joints and internal high-tensile steel flitches concealed inside historic hand-hewn columns.
           </div>
           <div>
-            <span className="font-semibold text-[#1C1B18] block mb-1">Moulding & Joinery Replication</span>
-            100% in-house cutter profiling of original 1905 kauri architraves, fretwork brackets, and double-hung sash window stiles.
+            <span className="font-semibold text-[#1C1B18] block mb-1">18-Metre Garden Aperture</span>
+            Uninterrupted cantilevered architectural glass pavilion opening onto hillside moss garden without visible steel posts.
           </div>
           <div>
-            <span className="font-semibold text-[#1C1B18] block mb-1">Modern Thermal Envelope</span>
-            Integrated continuous thermal insulation, vacuum-insulated double glazing, and hydronic radiant in-slab heating.
+            <span className="font-semibold text-[#1C1B18] block mb-1">Thermal & Acoustic Envelope</span>
+            Acoustically decoupled vacuum glazing and hand-rubbed timber drop-seals providing absolute quietness.
           </div>
         </div>
       </div>
